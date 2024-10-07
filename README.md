@@ -75,6 +75,41 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 }
 ```
 
+### [`packer.nvim`](https://github.com/wbthomason/packer.nvim):
+
+```lua
+-- tree-sitter stuff
+use {
+  "nvim-treesitter/nvim-treesitter",
+  requires = { "Hdoc1509/hygen.nvim" },
+  config = function()
+    -- NOTE: call these before calling `nvim-treesitter.configs.setup()`
+    require("hygen.tree-sitter").setup()
+
+    require("nvim-treesitter.configs").setup({
+      ensure_installed = {
+        -- other parsers
+        "bash", -- optional
+        "embedded_template", -- required
+        "javascript", -- optional
+        "hygen_template", -- required
+      },
+      -- other options
+    })
+  end,
+}
+
+-- nvim-web-devicons stuff
+use {
+  "nvim-tree/nvim-web-devicons",
+  requires = { "Hdoc1509/hygen.nvim" },
+  config = function()
+    require("nvim-web-devicons").setup({})
+    require("hygen.web-devicons").setup()
+  end,
+}
+```
+
 ## Dynamic injection
 
 Dynamic injection is applied to template body, based on file extension.
