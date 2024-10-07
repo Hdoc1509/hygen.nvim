@@ -5,6 +5,8 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 
 ![Hygen template with Markdown parser injected](https://github.com/user-attachments/assets/4d386909-d889-4e4c-a138-9adc5d70920c)
 
+> Hygen template with Markdown parser injected
+
 ## Features
 
 - Syntax highlighting for [Hygen](https://www.hygen.io/) templates.
