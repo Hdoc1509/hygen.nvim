@@ -10,7 +10,7 @@ if ! [[ -f CHANGELOG.md ]]; then
   echo "[RELEASE]: Breaking changes check will be skipped!"
   echo
 
-  npx changeset version
+  pnpm changeset version
 
   # changelog is now generated
   set_changelog_initial_release_message
@@ -34,7 +34,7 @@ echo "[RELEASE]: Unstable version release!"
 echo
 
 # genrate changelog and update version
-npx changeset version
+pnpm changeset version
 
 # NOTE: uncomment to test
 # breaking_changes_count=1

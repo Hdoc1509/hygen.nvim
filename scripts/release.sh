@@ -7,7 +7,7 @@ source "$REPO_ROOT"/scripts/utils.sh
 previous_version=$(get_version_from_changelog)
 
 # genrate changelog and update version
-npx changeset version
+pnpm changeset version
 
 major_change_count=$(head --line=5 CHANGELOG.md | grep --count "Major")
 
