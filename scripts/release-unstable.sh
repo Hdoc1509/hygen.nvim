@@ -13,9 +13,7 @@ if ! [[ -f CHANGELOG.md ]]; then
   npx changeset version
 
   # changelog is now generated
-  update_new_version
   set_changelog_initial_release_message
-  update_package_files_version
 
   exit 0
 fi
