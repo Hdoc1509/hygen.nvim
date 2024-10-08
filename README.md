@@ -45,7 +45,7 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
       }
     },
     config = function()
-      -- NOTE: call these before calling `nvim-treesitter.configs.setup()`
+      -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
       require("hygen.tree-sitter").setup()
 
       require("nvim-treesitter.configs").setup({
@@ -85,7 +85,7 @@ use {
   "nvim-treesitter/nvim-treesitter",
   requires = { "Hdoc1509/hygen.nvim" },
   config = function()
-    -- NOTE: call these before calling `nvim-treesitter.configs.setup()`
+    -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
     require("hygen.tree-sitter").setup()
 
     require("nvim-treesitter.configs").setup({
