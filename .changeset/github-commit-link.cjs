@@ -19,7 +19,7 @@ const getReleaseLine = async (changeset, _type, options) => {
   if (options?.repo == null)
     throw new Error(
       "Please provide a `repo` option to this changelog generator, like this:\n" +
-        '"changelog": ["./with-links-changelog.cjs", { "repo": "user/repo" }]'
+        '"changelog": ["./githab-commit-link.cjs", { "repo": "user/repo" }]'
     );
 
   const [firstLine, ...futureLines] = changeset.summary
@@ -48,7 +48,7 @@ const getDependencyReleaseLine = async (
   if (options?.repo == null)
     throw new Error(
       "Please provide a `repo` option to this changelog generator, like this:\n" +
-        '"changelog": ["./with-links-changelog.cjs", { "repo": "user/repo" }]'
+        '"changelog": ["./githab-commit-link.cjs", { "repo": "user/repo" }]'
     );
 
   if (dependenciesUpdated.length === 0) return "";
