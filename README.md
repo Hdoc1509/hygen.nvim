@@ -39,10 +39,10 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
     -- tree-sitter stuff
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      {
-        "Hdoc1509/hygen.nvim",
-        version = "0.0.0",
-      }
+      -- latest release
+      { "Hdoc1509/hygen.nvim", branch = "release" },
+      -- release at version
+      -- { "Hdoc1509/hygen.nvim", tag = "release-vX.X.X"  },
     },
     config = function()
       -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
@@ -64,10 +64,10 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
     -- nvim-web-devicons stuff
     "nvim-tree/nvim-web-devicons",
     dependencies = {
-      {
-        "Hdoc1509/hygen.nvim",
-        version = "0.0.0",
-      }
+      -- latest release
+      { "Hdoc1509/hygen.nvim", branch = "release" },
+      -- release at version
+      -- { "Hdoc1509/hygen.nvim", tag = "release-vX.X.X"  },
     },
     config = function()
       require("nvim-web-devicons").setup({})
@@ -83,7 +83,12 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 -- tree-sitter stuff
 use {
   "nvim-treesitter/nvim-treesitter",
-  requires = { "Hdoc1509/hygen.nvim" },
+  requires = {
+    -- latest release
+    { "Hdoc1509/hygen.nvim", branch = "release" },
+    -- release at version
+    -- { "Hdoc1509/hygen.nvim", tag = "release-vX.X.X"  },
+  },
   config = function()
     -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
     require("hygen.tree-sitter").setup()
@@ -104,7 +109,12 @@ use {
 -- nvim-web-devicons stuff
 use {
   "nvim-tree/nvim-web-devicons",
-  requires = { "Hdoc1509/hygen.nvim" },
+  requires = {
+    -- latest release
+    { "Hdoc1509/hygen.nvim", branch = "release" },
+    -- release at version
+    -- { "Hdoc1509/hygen.nvim", tag = "release-vX.X.X"  },
+  },
   config = function()
     require("nvim-web-devicons").setup({})
     require("hygen.web-devicons").setup()
