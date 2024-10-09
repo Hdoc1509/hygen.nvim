@@ -122,6 +122,11 @@ use {
 }
 ```
 
+## Filetype
+
+This plugin will set `filetype` to `hygen` to all files that match the name
+pattern `*.(ext).hygen`.
+
 ## Dynamic injection
 
 Dynamic injection is applied to template body, based on file extension.
