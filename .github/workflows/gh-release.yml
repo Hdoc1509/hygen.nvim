@@ -9,28 +9,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  gh-pages:
-    runs-on: ubuntu-22.04
-    if: github.repository == 'Hdoc1509/hygen.nvim'
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-
-      # only neovim-specific files
-      - name: Prepare files for release
-        run: |
-          mkdir release
-          cp --recursive ftdetect lua queries README.md release
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./release
-          publish_branch: release
-          tag_name: "release-${{ github.ref_name }}"
-
   gh-release:
     runs-on: ubuntu-22.04
     if: github.repository == 'Hdoc1509/hygen.nvim'

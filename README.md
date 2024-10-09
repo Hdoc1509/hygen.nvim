@@ -39,10 +39,10 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
     -- tree-sitter stuff
     "nvim-treesitter/nvim-treesitter",
     dependencies = {
-      -- latest release
-      { "Hdoc1509/hygen.nvim", branch = "release" },
-      -- release at version
-      -- { "Hdoc1509/hygen.nvim", tag = "release-vX.X.X"  },
+      -- latest commit
+      "Hdoc1509/hygen.nvim",
+      -- specific release
+      -- { "Hdoc1509/hygen.nvim", tag = "vX.X.X"  },
     },
     config = function()
       -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
@@ -64,10 +64,10 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
     -- nvim-web-devicons stuff
     "nvim-tree/nvim-web-devicons",
     dependencies = {
-      -- latest release
-      { "Hdoc1509/hygen.nvim", branch = "release" },
-      -- release at version
-      -- { "Hdoc1509/hygen.nvim", tag = "release-vX.X.X"  },
+      -- latest commit
+      "Hdoc1509/hygen.nvim",
+      -- specific release
+      -- { "Hdoc1509/hygen.nvim", tag = "vX.X.X"  },
     },
     config = function()
       require("nvim-web-devicons").setup({})
@@ -84,10 +84,10 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 use {
   "nvim-treesitter/nvim-treesitter",
   requires = {
-    -- latest release
-    { "Hdoc1509/hygen.nvim", branch = "release" },
-    -- release at version
-    -- { "Hdoc1509/hygen.nvim", tag = "release-vX.X.X"  },
+      -- latest commit
+      "Hdoc1509/hygen.nvim",
+      -- specific release
+      -- { "Hdoc1509/hygen.nvim", tag = "vX.X.X"  },
   },
   config = function()
     -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
@@ -110,10 +110,10 @@ use {
 use {
   "nvim-tree/nvim-web-devicons",
   requires = {
-    -- latest release
-    { "Hdoc1509/hygen.nvim", branch = "release" },
-    -- release at version
-    -- { "Hdoc1509/hygen.nvim", tag = "release-vX.X.X"  },
+      -- latest commit
+      "Hdoc1509/hygen.nvim",
+      -- specific release
+      -- { "Hdoc1509/hygen.nvim", tag = "vX.X.X"  },
   },
   config = function()
     require("nvim-web-devicons").setup({})
