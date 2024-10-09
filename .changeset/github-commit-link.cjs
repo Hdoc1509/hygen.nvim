@@ -6,6 +6,9 @@
 /** @typedef {import('@changesets/types').ChangelogFunctions} ChangelogFunctions */
 
 const GH_BASE_URL = "https://github.com";
+const validationErrorMessage =
+  "Please provide a `repo` option to this changelog generator, like this:\n" +
+  '"changelog": ["./github-commit-link.cjs", { "repo": "user/repo" }]';
 
 /**
  * @param {string} commit
@@ -16,11 +19,7 @@ const createCommitLink = (commit, repo) =>
 
 /** @type {ChangelogFunctions["getReleaseLine"]} */
 const getReleaseLine = async (changeset, _type, options) => {
-  if (options?.repo == null)
-    throw new Error(
-      "Please provide a `repo` option to this changelog generator, like this:\n" +
-        '"changelog": ["./githab-commit-link.cjs", { "repo": "user/repo" }]'
-    );
+  if (options?.repo == null) throw new Error(validationErrorMessage);
 
   const [firstLine, ...futureLines] = changeset.summary
     .split("\n")
@@ -45,11 +44,7 @@ const getDependencyReleaseLine = async (
   dependenciesUpdated,
   options
 ) => {
-  if (options?.repo == null)
-    throw new Error(
-      "Please provide a `repo` option to this changelog generator, like this:\n" +
-        '"changelog": ["./githab-commit-link.cjs", { "repo": "user/repo" }]'
-    );
+  if (options?.repo == null) throw new Error(validationErrorMessage);
 
   if (dependenciesUpdated.length === 0) return "";
 
