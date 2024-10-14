@@ -1,6 +1,9 @@
 {
   "$schema": "https://unpkg.com/@changesets/config@3.0.3/schema.json",
-  "changelog": ["./github-commit-link.cjs", { "repo": "Hdoc1509/hygen.nvim" }],
+  "changelog": [
+    "@svitejs/changesets-changelog-github-compact",
+    { "repo": "Hdoc1509/hygen.nvim" }
+  ],
   "commit": false,
   "fixed": [],
   "linked": [],
