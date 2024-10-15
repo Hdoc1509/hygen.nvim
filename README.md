@@ -16,16 +16,8 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 
 - `Neovim >= 0.9.0`
 - [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter)
-- [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) parsers:
-  - [`hygen-template`][hygen-template]: main parser that integrates the rest of
-    the parsers. Also holds the required [queries][hygen-template-queries]
-  - [`embedded-template`](https://github.com/tree-sitter/tree-sitter-embedded-template):
-    highlight of [`ejs` tags](https://github.com/mde/ejs?tab=readme-ov-file#tags)
-  - [`bash`](https://github.com/tree-sitter/tree-sitter-bash) (optional):
-    highlight of `metadata.key` when `metadata.value` is `sh`
-  - [`javascript`](https://github.com/tree-sitter/tree-sitter-javascript)
-    (optional): highlight of `code` nodes
-  - Any other parser that you want to use for [dynamic injection](#dynamic-injection)
+- [Parser requirements][hygen-template-requirements] of
+  [`tree-sitter-hygen-template`][hygen-template]
 - Icon provider (optional, but recommended):
   - [`nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
 
@@ -167,3 +159,4 @@ This plugin will follow changes of [`tree-sitter-hygen-template`][hygen-template
 [hygen-template-queries]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/queries
 [hygen-template-dynamic-injection]: https://github.com/Hdoc1509/tree-sitter-hygen-template?tab=readme-ov-file#dynamic-injections
 [hygen-template-filename]: https://github.com/Hdoc1509/tree-sitter-hygen-template?tab=readme-ov-file#file-name-pattern-convention
+[hygen-template-requirements]: https://github.com/Hdoc1509/tree-sitter-hygen-template?tab=readme-ov-file#parser-requirements
