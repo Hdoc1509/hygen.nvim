@@ -127,13 +127,21 @@ use {
 ## Filetype
 
 This plugin will set `filetype` to `hygen` to all files that match the name
-pattern `*.(ext).hygen`.
+pattern `<file-name>.(ext).hygen`.
+
+> [!NOTE]
+> See [file name pattern convention][hygen-template-filename] of
+> `tree-sitter-hygen-template` for more information.
 
 ## Dynamic injection
 
 Dynamic injection is applied to template body, based on file extension.
 
 Target `parser` to inject will be extracted from `file.(ext).hygen`.
+
+> [!NOTE]
+> See [dynamic injection][hygen-template-dynamic-injection] of
+> `tree-sitter-hygen-template` for more information.
 
 ### `file.ts.hygen`
 
@@ -157,3 +165,5 @@ This plugin will follow changes of [`tree-sitter-hygen-template`][hygen-template
 [hygen-template]: https://github.com/hdoc1509/tree-sitter-hygen-template
 [hygen-template-grammar]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/grammar.js
 [hygen-template-queries]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/queries
+[hygen-template-dynamic-injection]: https://github.com/Hdoc1509/tree-sitter-hygen-template?tab=readme-ov-file#dynamic-injections
+[hygen-template-filename]: https://github.com/Hdoc1509/tree-sitter-hygen-template?tab=readme-ov-file#file-name-pattern-convention
