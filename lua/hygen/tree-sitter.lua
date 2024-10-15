@@ -39,7 +39,8 @@ function M.setup()
 
       local parsed_ft = ext_to_ft[ext] or filetype
 
-      local parser_found = ts_parsers.ft_to_lang(parsed_ft or ext) -- filetype can be nil
+      -- filetype can be nil
+      local parser_found = ts_parsers.ft_to_lang(parsed_ft or ext)
 
       metadata["injection.language"] = parser_found
     end,
