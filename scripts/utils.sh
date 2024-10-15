@@ -1,5 +1,5 @@
 changelog_file=$REPO_ROOT/CHANGELOG.md
-breaking_changes_message_file=$REPO_ROOT/docs/breaking-change-message.txt
+breaking_changes_message_file=$REPO_ROOT/scripts/breaking-change-message.txt
 
 get_version_from_changelog() {
   head --lines=3 "$changelog_file" | tail --lines=1 | awk '{ print $2 }'
@@ -10,30 +10,32 @@ set_changelog_initial_release_message() {
 set_changelog_breaking_changes_message() {
   local compatible_semver=$1
   local previous_version=$2
-  local previous_version_message
-  local breaking_changes_message
+  local version_lazy
+  local version_packer
+  local major_v
+  local major_minor_v
 
   if [[ $compatible_semver == "patch" ]]; then
-    previous_version_message="\`~$previous_version\`"
+    major_minor_v=$(cut --delimiter=. --fields=1,2 <<<"$previous_version")
+    version_lazy="tag = 'v$major_minor_v.X'\` or \`version = '~$previous_version'"
+    version_packer="tag = 'v$major_minor_v.*'"
   elif [[ $compatible_semver == "minor" ]]; then
-    previous_version_message="\`^$previous_version\` or \`~$previous_version\`"
+    major_v=$(cut --delimiter=. --fields=1 <<<"$previous_version")
+    version_lazy="tag = 'v$major_v.X.X'\` or \`version = '^$previous_version'"
+    version_packer="tag = 'v$major_v.*.*'"
   else
     echo "Invalid compatible semver: $compatible_semver"
     exit 1
   fi
 
-  breaking_changes_message=$(
-    sed \
-      -e "s/{{ compatible_semver }}/$compatible_semver/" \
-      -e "s/{{ previous_version }}/$previous_version_message/" \
-      "$breaking_changes_message_file"
-  )
-
   echo
   echo "[RELEASE]: Breaking changes detected!"
   echo "[RELEASE]: Generating breaking change message..."
 
-  sed -i "4 a$breaking_changes_message\n" CHANGELOG.md
+  sed -i "4r $breaking_changes_message_file" CHANGELOG.md
+  sed -i "s/{{ compatible_semver }}/$compatible_semver/" CHANGELOG.md
+  sed -i "s/{{ version_lazy }}/$version_lazy/" CHANGELOG.md
+  sed -i "s/{{ version_packer }}/$version_packer/" CHANGELOG.md
 
   echo "[RELEASE]: Breaking changes message generated!"
 }
