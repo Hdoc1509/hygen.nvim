@@ -43,6 +43,7 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
       "Hdoc1509/hygen.nvim",
       -- specific release
       -- { "Hdoc1509/hygen.nvim", tag = "vX.X.X"  },
+      -- { "Hdoc1509/hygen.nvim", version = "X.X.X"  },
     },
     config = function()
       -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
@@ -68,6 +69,7 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
       "Hdoc1509/hygen.nvim",
       -- specific release
       -- { "Hdoc1509/hygen.nvim", tag = "vX.X.X"  },
+      -- { "Hdoc1509/hygen.nvim", version = "X.X.X"  },
     },
     config = function()
       require("nvim-web-devicons").setup({})
