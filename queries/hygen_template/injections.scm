@@ -10,6 +10,7 @@
   (#set! injection.language "javascript")
   (#set! injection.combined))
 
+; dynamic injection
 ((content) @injection.content
   (#inject-hygen-tmpl!)
   (#set! injection.combined))
