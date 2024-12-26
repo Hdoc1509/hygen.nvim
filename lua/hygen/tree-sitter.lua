@@ -15,7 +15,7 @@ end
 local M = {}
 
 function M.setup()
-  -- register parser
+  --- @class ParserConfig
   local parser_config = ts_parsers.get_parser_configs()
 
   parser_config.hygen_template = {
