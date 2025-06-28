@@ -44,6 +44,7 @@ function M.setup()
 
       metadata["injection.language"] = parser_found
     end,
+    ---@diagnostic disable-next-line: param-type-mismatch
     directive_options
   )
 end
