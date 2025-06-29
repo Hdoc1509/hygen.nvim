@@ -7,8 +7,7 @@ source "$REPO_ROOT"/scripts/utils.sh
 # INITIAL RELEASE
 if ! [[ -f CHANGELOG.md ]]; then
   echo "[RELEASE]: Initial release!"
-  echo "[RELEASE]: Breaking changes check will be skipped!"
-  echo
+  echo -e '[RELEASE]: Breaking changes check will be skipped!\n'
 
   pnpm changeset version
 
@@ -30,8 +29,7 @@ breaking_changes_count=$(
     grep --count --extended-regexp "$unstable_message_regex"
 )
 
-echo "[RELEASE]: Unstable version release!"
-echo
+echo -e '[RELEASE]: Unstable version release!\n'
 
 # genrate changelog and update version
 pnpm changeset version
