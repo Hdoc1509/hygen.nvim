@@ -3,6 +3,7 @@ local ts_parsers = require("nvim-treesitter.parsers")
 ---@class hygen.treesitter.injection.Config
 ---@field bash? boolean Enables `embedded_template` injection for `bash` parser
 ---@field markdown_inline? boolean Enables `embedded_template` injection for `markdown_inline` parser
+---@field html? boolean Enables `embedded_template` injection for `html` parser
 
 ---@class hygen.treesitter.Config
 ---@field injection? hygen.treesitter.injection.Config Additional injections
@@ -22,6 +23,7 @@ local default_config = {
   injection = {
     bash = true,
     markdown_inline = true,
+    html = true,
   },
 }
 
@@ -86,6 +88,26 @@ function M.setup(config)
     "inject-hygen-markdown_inline-ejs!",
     function(_, _, bufnr, _, metadata)
       if not config.injection.markdown_inline then
+        return
+      end
+
+      local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
+      local _, _, subext, ext = string.find(filename, ".*%.(%a+)(%.%a+)")
+
+      if subext == nil or ext ~= ".hygen" then
+        return
+      end
+
+      metadata["injection.language"] = "embedded_template"
+    end,
+    ---@diagnostic disable-next-line: param-type-mismatch
+    directive_options
+  )
+
+  vim.treesitter.query.add_directive(
+    "inject-hygen-html-ejs!",
+    function(_, _, bufnr, _, metadata)
+      if not config.injection.html then
         return
       end
 
