@@ -23,7 +23,7 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 
 ## Install
 
-### [`lazy.nvim`](https://github.com/folke/lazy.nvim):
+### [`lazy.nvim`](https://github.com/folke/lazy.nvim)
 
 ```lua
 {
@@ -71,7 +71,7 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 }
 ```
 
-### [`packer.nvim`](https://github.com/wbthomason/packer.nvim):
+### [`packer.nvim`](https://github.com/wbthomason/packer.nvim)
 
 ```lua
 -- tree-sitter stuff
