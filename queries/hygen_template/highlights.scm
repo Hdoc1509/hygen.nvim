@@ -19,3 +19,10 @@
     (metadata
       (value
         (string_value) @string))))
+
+(frontmatter
+  "---" @punctuation.delimiter)
+
+(frontmatter
+  (metadata
+    ":" @punctuation.delimiter))
