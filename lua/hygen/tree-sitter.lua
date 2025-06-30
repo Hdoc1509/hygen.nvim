@@ -49,14 +49,18 @@ function M.setup(config)
     "inject-hygen-tmpl!",
     function(_, _, bufnr, _, metadata)
       local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
+      local _, _, subext, hygen_ext = string.find(filename, ".*%.(%a+)(%.%a+)")
 
-      local _, _, ext = string.find(filename, ".*%.(%a+)(%.%a+)")
-      local filetype = vim.filetype.match({ filename = "name." .. ext })
+      if subext == nil or hygen_ext ~= ".hygen" then
+        return
+      end
 
-      local parsed_ft = ext_to_ft[ext] or filetype
+      local filetype = vim.filetype.match({ filename = "name." .. subext })
+
+      local parsed_ft = ext_to_ft[subext] or filetype
 
       -- filetype can be nil
-      local parser_found = ts_parsers.ft_to_lang(parsed_ft or ext)
+      local parser_found = ts_parsers.ft_to_lang(parsed_ft or subext)
 
       metadata["injection.language"] = parser_found
     end,
