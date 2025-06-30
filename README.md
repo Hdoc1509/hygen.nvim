@@ -154,6 +154,11 @@ This plugin will follow changes of [`tree-sitter-hygen-template`][hygen-template
 - [`queries`][hygen-template-queries] updates
 - [`grammar`][hygen-template-grammar] updates
 
+## Thanks
+
+Thanks to [@reegnz](https://github.com/reegnz) for its
+[idea](https://github.com/nvim-treesitter/nvim-treesitter/discussions/1917#discussioncomment-2091384)
+
 [hygen-template]: https://github.com/hdoc1509/tree-sitter-hygen-template
 [hygen-template-grammar]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/grammar.js
 [hygen-template-queries]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/queries
