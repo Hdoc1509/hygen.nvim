@@ -30,7 +30,9 @@ function M.get_icon(filename)
     return devicons.get_icon_color(filename, vim.fn.fnamemodify(filename, ":e"))
   end
 
-  local icon = devicons.get_icon("name." .. subext, subext)
+  local target_name = vim.fn.fnamemodify(filename, ":t:r")
+  local icon =
+    devicons.get_icon(target_name, vim.fn.fnamemodify(target_name, ":e"))
 
   return icon, main_color
 end
