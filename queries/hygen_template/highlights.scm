@@ -26,3 +26,15 @@
 (frontmatter
   (metadata
     ":" @punctuation.delimiter))
+
+([
+  "<%#"
+  "<%"
+  "<%="
+  "<%_"
+  "<%-"
+  "%>"
+  "-%>"
+  "_%>"
+] @keyword
+  (#highlight-increase-ejs-priority!))
