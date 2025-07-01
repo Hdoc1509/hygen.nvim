@@ -1,4 +1,5 @@
 local ts_parsers = require("nvim-treesitter.parsers")
+local get_hygen_subext = require("hygen.utils").get_hygen_subext
 
 ---@class hygen.treesitter.injection.Config
 ---@field bash? boolean Enables `embedded_template` injection for `bash` parser
@@ -48,37 +49,32 @@ function M.setup(config)
   vim.treesitter.query.add_directive(
     "inject-hygen-tmpl!",
     function(_, _, bufnr, _, metadata)
-      local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
-      local _, _, subext, hygen_ext = string.find(filename, ".*%.(%a+)(%.%a+)")
-
-      if subext == nil or hygen_ext ~= ".hygen" then
-        return
-      end
+      local subext = get_hygen_subext(bufnr)
+      -- stylua: ignore
+      if subext == nil then return end
 
       local filetype = vim.filetype.match({ filename = "name." .. subext })
+      local parser =
+        ts_parsers.ft_to_lang(ext_to_ft[subext] or filetype or subext)
 
-      local parsed_ft = ext_to_ft[subext] or filetype
-
-      -- filetype can be nil
-      local parser_found = ts_parsers.ft_to_lang(parsed_ft or subext)
-
-      metadata["injection.language"] = parser_found
+      metadata["injection.language"] = parser
     end,
     ---@diagnostic disable-next-line: param-type-mismatch
     directive_options
   )
 
+  -- TODO: add `inject-hygen-ejs-to!` directive
+  -- remove `inject-hygen-[bash|markdown_inline|html]-ejs!` directives. these
+  -- should be manually added to custom queries of usuers
+  -- NOTE: this will inject `embedded_template`, but its `injection` query uses
+  -- `ruby` instead of `javascript`. will it require to use a custom directive
+  -- to only inject `javascript` to `.ejs` and `.subext.hygen` files and `ruby`
+  -- for the rest?
+
   vim.treesitter.query.add_directive(
     "inject-hygen-bash-ejs!",
     function(_, _, bufnr, _, metadata)
-      if not config.injection.bash then
-        return
-      end
-
-      local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
-      local _, _, subext, ext = string.find(filename, ".*%.(%a+)(%.%a+)")
-
-      if subext == nil or ext ~= ".hygen" then
+      if not config.injection.bash or get_hygen_subext(bufnr) == nil then
         return
       end
 
@@ -91,14 +87,9 @@ function M.setup(config)
   vim.treesitter.query.add_directive(
     "inject-hygen-markdown_inline-ejs!",
     function(_, _, bufnr, _, metadata)
-      if not config.injection.markdown_inline then
-        return
-      end
-
-      local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
-      local _, _, subext, ext = string.find(filename, ".*%.(%a+)(%.%a+)")
-
-      if subext == nil or ext ~= ".hygen" then
+      if
+        not config.injection.markdown_inline or get_hygen_subext(bufnr) == nil
+      then
         return
       end
 
@@ -111,14 +102,7 @@ function M.setup(config)
   vim.treesitter.query.add_directive(
     "inject-hygen-html-ejs!",
     function(_, _, bufnr, _, metadata)
-      if not config.injection.html then
-        return
-      end
-
-      local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
-      local _, _, subext, ext = string.find(filename, ".*%.(%a+)(%.%a+)")
-
-      if subext == nil or ext ~= ".hygen" then
+      if not config.injection.html or get_hygen_subext(bufnr) == nil then
         return
       end
 
@@ -131,10 +115,7 @@ function M.setup(config)
   vim.treesitter.query.add_directive(
     "highlight-increase-ejs-priority!",
     function(_, _, bufnr, _, metadata)
-      local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
-      local _, _, subext, ext = string.find(filename, ".*%.(%a+)(%.%a+)")
-
-      if subext == nil or ext ~= ".hygen" then
+      if get_hygen_subext(bufnr) == nil then
         return
       end
 
