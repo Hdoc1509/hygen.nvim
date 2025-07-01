@@ -1,5 +1,3 @@
-; inherits: embedded_template
-
 (template
   (frontmatter
     (metadata
@@ -26,6 +24,8 @@
 (frontmatter
   (metadata
     ":" @punctuation.delimiter))
+
+(comment_directive) @comment
 
 ([
   "<%#"
