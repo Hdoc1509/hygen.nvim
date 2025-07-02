@@ -43,12 +43,6 @@ function M.setup()
     directive_options
   )
 
-  -- NOTE: this will inject `embedded_template`, but its `injection` query uses
-  -- `ruby` instead of `javascript`. will it require to use a custom directive
-  -- to only inject `javascript` to `.ejs` and `.subext.hygen` files and `ruby`
-  -- for the rest?
-  -- TODO: override `injections` query of `embedded_template` to apply
-  -- `javascript` or `ruby` parser depending on file extension
   vim.treesitter.query.add_directive(
     "inject-hygen-ejs!",
     function(_, _, bufnr, _, metadata)
@@ -57,6 +51,27 @@ function M.setup()
       end
 
       metadata["injection.language"] = "embedded_template"
+    end,
+    ---@diagnostic disable-next-line: param-type-mismatch
+    directive_options
+  )
+
+  vim.treesitter.query.add_directive(
+    "inject-embedded_template!",
+    function(_, _, bufnr, _, metadata)
+      if get_hygen_subext(bufnr) ~= nil then
+        metadata["injection.language"] = "javascript"
+        return
+      end
+
+      local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
+      local ext = vim.fn.fnamemodify(filename, ":e")
+
+      if ext == "ejs" then
+        metadata["injection.language"] = "javascript"
+      elseif ext == "erb" then
+        metadata["injection.language"] = "ruby"
+      end
     end,
     ---@diagnostic disable-next-line: param-type-mismatch
     directive_options
