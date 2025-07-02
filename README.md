@@ -175,8 +175,8 @@ This plugin will follow changes of [`tree-sitter-hygen-template`][hygen-template
 
 ## Thanks
 
-Thanks to [@reegnz](https://github.com/reegnz) for
-[this idea](https://github.com/nvim-treesitter/nvim-treesitter/discussions/1917#discussioncomment-2091384)
+Thanks to [@ngynkvn](https://github.com/ngynkvn) for
+[this idea](https://github.com/nvim-treesitter/nvim-treesitter/discussions/1917#discussioncomment-10714144)
 
 [hygen-template]: https://github.com/hdoc1509/tree-sitter-hygen-template
 [hygen-template-grammar]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/grammar.js
