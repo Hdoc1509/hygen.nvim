@@ -12,6 +12,7 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 - Syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 - Dynamic parser injection based on file extension (see [dynamic injection](#dynamic-injection))
 - New [directive](#inject-hygen-ejs-directive) to customize injections
+- Utility to get [hygen-ed colored icons](#hygen-ed-colored-icons)
 
 ## Requirements
 
@@ -110,6 +111,27 @@ Allows to inject `ejs` in [dynamic-injection](#dynamic-injection), i.e., given
 The example query will inject `ejs` to `bash` strings that contain `<%=`. This
 injection will only take effect in `hygen` files that has `bash` parser injected.
 
+## Hygen-ed colored icons
+
+> [!NOTE]
+> This feature requires `nvim-web-devicons` plugin.
+
+`hygen.web-devicons` module exports a `get_icon(filename)` utility. It fallbacks
+to `get_icon_color()` utility of `nvim-web-devicons` if `filename` does not match
+naming convention.
+
+```lua
+local hygen_devicons = require("hygen.web-devicons")
+
+-- returns `icon` for `README.md` file and `hygen` color
+local icon, icon_color = hygen_devicons.get_icon("README.md.hygen")
+
+-- now returns `icon` for `md` files
+local icon, icon_color = hygen_devicons.get_icon("custom.md.hygen")
+```
+
+See screenshots of [Dynamic injection](#dynamic-injection) section for examples.
+
 ## Filetype
 
 This plugin will set `filetype` to `hygen` to all files that match the name
@@ -128,6 +150,9 @@ Target `parser` to inject will be extracted from `file.(ext).hygen`.
 > [!NOTE]
 > See [dynamic injection][hygen-template-dynamic-injection] of
 > `tree-sitter-hygen-template` for more information.
+
+<!-- TODO: add screenshots with and without using `hygen.web-devicons.get_icon()`
+utility -->
 
 ### `file.ts.hygen`
 
