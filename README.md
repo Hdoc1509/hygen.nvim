@@ -30,39 +30,25 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
   {
     -- tree-sitter stuff
     "nvim-treesitter/nvim-treesitter",
-    dependencies = {
-      -- latest commit
-      "Hdoc1509/hygen.nvim",
-      -- specific release
-      -- { "Hdoc1509/hygen.nvim", tag = "vX.X.X"  },
-      -- { "Hdoc1509/hygen.nvim", version = "X.X.X"  },
-    },
+    dependencies = { "Hdoc1509/hygen.nvim" },
     config = function()
       -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
       require("hygen.tree-sitter").setup()
 
       require("nvim-treesitter.configs").setup({
         ensure_installed = {
-          -- other parsers
           "bash", -- optional
           "embedded_template", -- required
           "javascript", -- optional
           "hygen_template", -- required
         },
-        -- other options
       })
     end,
   },
   {
     -- nvim-web-devicons stuff
     "nvim-tree/nvim-web-devicons",
-    dependencies = {
-      -- latest commit
-      "Hdoc1509/hygen.nvim",
-      -- specific release
-      -- { "Hdoc1509/hygen.nvim", tag = "vX.X.X"  },
-      -- { "Hdoc1509/hygen.nvim", version = "X.X.X"  },
-    },
+    dependencies = { "Hdoc1509/hygen.nvim" },
     config = function()
       require("nvim-web-devicons").setup({})
       require("hygen.web-devicons").setup()
@@ -77,25 +63,18 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 -- tree-sitter stuff
 use {
   "nvim-treesitter/nvim-treesitter",
-  requires = {
-      -- latest commit
-      "Hdoc1509/hygen.nvim",
-      -- specific release
-      -- { "Hdoc1509/hygen.nvim", tag = "vX.X.X"  },
-  },
+  requires = { "Hdoc1509/hygen.nvim" },
   config = function()
     -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
     require("hygen.tree-sitter").setup()
 
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
-        -- other parsers
         "bash", -- optional
         "embedded_template", -- required
         "javascript", -- optional
         "hygen_template", -- required
       },
-      -- other options
     })
   end,
 }
@@ -103,12 +82,7 @@ use {
 -- nvim-web-devicons stuff
 use {
   "nvim-tree/nvim-web-devicons",
-  requires = {
-      -- latest commit
-      "Hdoc1509/hygen.nvim",
-      -- specific release
-      -- { "Hdoc1509/hygen.nvim", tag = "vX.X.X"  },
-  },
+  requires = { "Hdoc1509/hygen.nvim" },
   config = function()
     require("nvim-web-devicons").setup({})
     require("hygen.web-devicons").setup()
