@@ -37,4 +37,4 @@
   "-%>"
   "_%>"
 ] @keyword
-  (#highlight-increase-ejs-priority!))
+  (#set! priority 130))

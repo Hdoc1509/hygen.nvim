@@ -78,19 +78,6 @@ function M.setup()
     ---@diagnostic disable-next-line: param-type-mismatch
     directive_options
   )
-
-  vim.treesitter.query.add_directive(
-    "highlight-increase-ejs-priority!",
-    function(_, _, bufnr, _, metadata)
-      if get_hygen_subext(bufnr) == nil then
-        return
-      end
-
-      metadata.priority = 130
-    end,
-    ---@diagnostic disable-next-line: param-type-mismatch
-    directive_options
-  )
 end
 
 return M
