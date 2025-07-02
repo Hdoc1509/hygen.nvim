@@ -11,6 +11,7 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 
 - Syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 - Dynamic parser injection based on file extension (see [dynamic injection](#dynamic-injection))
+- New [directive](#inject-hygen-ejs-directive) to customize injections
 
 ## Requirements
 
@@ -89,6 +90,25 @@ use {
   end,
 }
 ```
+
+## `inject-hygen-ejs!` directive
+
+Allows to inject `ejs` in [dynamic-injection](#dynamic-injection), i.e., given
+`after/queries/bash/injections.scm`:
+
+```query
+; extends
+; don't forget to include `extends` modeline!
+
+(command
+  (string
+    (string_content) @injection.content
+    (#lua-match? @injection.content "<%%=")
+    (#inject-hygen-ejs!)))
+```
+
+The example query will inject `ejs` to `bash` strings that contain `<%=`. This
+injection will only take effect in `hygen` files that has `bash` parser injected.
 
 ## Filetype
 
