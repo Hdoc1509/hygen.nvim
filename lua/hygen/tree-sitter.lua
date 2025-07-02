@@ -30,8 +30,9 @@ function M.setup()
     "inject-hygen-tmpl!",
     function(_, _, bufnr, _, metadata)
       local subext = get_hygen_subext(bufnr)
-      -- stylua: ignore
-      if subext == nil then return end
+      if subext == nil then
+        return
+      end
 
       local filetype = vim.filetype.match({ filename = "name." .. subext })
       local parser =
