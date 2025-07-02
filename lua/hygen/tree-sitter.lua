@@ -59,12 +59,13 @@ function M.setup()
   vim.treesitter.query.add_directive(
     "inject-embedded_template!",
     function(_, _, bufnr, _, metadata)
-      if get_hygen_subext(bufnr) ~= nil then
+      local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
+
+      if get_hygen_subext(filename) ~= nil then
         metadata["injection.language"] = "javascript"
         return
       end
 
-      local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
       local ext = vim.fn.fnamemodify(filename, ":e")
 
       if ext == "ejs" then
