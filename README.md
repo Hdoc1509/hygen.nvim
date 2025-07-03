@@ -11,7 +11,7 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 
 - Syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 - Dynamic parser injection based on file extension (see [dynamic injection](#dynamic-injection))
-- New [directive](#inject-hygen-ejs-directive) to customize injections
+- [New directive](#inject-hygen-ejs-directive) to customize injections
 - Utility to get [hygen-ed colored icons](#hygen-ed-colored-icons)
 
 ## Requirements
