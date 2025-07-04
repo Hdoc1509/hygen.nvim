@@ -1,13 +1,13 @@
 changelog_file=$REPO_ROOT/CHANGELOG.md
 breaking_changes_message_file=$REPO_ROOT/scripts/breaking-change-message.txt
 
-get_version_from_changelog() {
+get_current_version() {
   head --lines=3 "$changelog_file" | tail --lines=1 | awk '{ print $2 }'
 }
-set_changelog_initial_release_message() {
+write_initial_release_message() {
   sed -i "5 s/.*/### Initial release/" "$changelog_file"
 }
-set_changelog_breaking_changes_message() {
+add_breaking_changes_message() {
   local compatible_semver=$1
   local previous_version=$2
   local version_lazy

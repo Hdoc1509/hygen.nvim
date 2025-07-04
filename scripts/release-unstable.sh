@@ -12,7 +12,7 @@ if ! [[ -f CHANGELOG.md ]]; then
   pnpm changeset version
 
   # changelog is now generated
-  set_changelog_initial_release_message
+  write_initial_release_message
 
   exit 0
 fi
@@ -20,7 +20,7 @@ fi
 get_last_tag() { git describe --tags --abbrev=0; }
 
 # NORMAL RELEASE
-previous_version=$(get_version_from_changelog)
+previous_version=$(get_current_version)
 
 # changes since last release
 # inject:regex:
@@ -39,5 +39,5 @@ pnpm changeset version
 # breaking_changes_count=1
 
 if [[ $breaking_changes_count -gt 0 ]]; then
-  set_changelog_breaking_changes_message "patch" "$previous_version"
+  add_breaking_changes_message "patch" "$previous_version"
 fi
