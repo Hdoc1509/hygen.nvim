@@ -132,15 +132,6 @@ local icon, icon_color = hygen_devicons.get_icon("custom.md.hygen")
 
 See screenshots of [Dynamic injection](#dynamic-injection) section for examples.
 
-## Filetype
-
-This plugin will set `filetype` to `hygen` to all files that match the name
-pattern `<file-name>.(ext).hygen`.
-
-> [!NOTE]
-> See [file name pattern convention][hygen-template-filename] of
-> `tree-sitter-hygen-template` for more information.
-
 ## Dynamic injection
 
 Dynamic injection is applied following the [file naming convention of
