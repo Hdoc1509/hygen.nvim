@@ -1,5 +1,7 @@
 local M = {}
 
+local not_allowed_subext = { "ejs", "erb", "hygen" }
+
 ---@param file string | number Filename or buffer number
 ---@return string | nil subext Subextension if file matched naming convention
 function M.get_hygen_subext(file)
@@ -8,7 +10,11 @@ function M.get_hygen_subext(file)
     or file
   local _, _, subext, hygen_ext = string.find(filename, ".*%.(%a+)(%.%a+)")
 
-  if subext == nil or hygen_ext ~= ".hygen" then
+  if
+    hygen_ext ~= ".hygen"
+    or subext == nil
+    or vim.tbl_contains(not_allowed_subext, subext)
+  then
     return
   end
 
