@@ -2,7 +2,7 @@
   "name": "hygen.nvim",
   "version": "0.2.0",
   "private": true,
-  "license": "MIT",
+  "license": "Apache-2.0",
   "author": "Héctor Ochoa <hector.ochoa.dev@gmail.com>",
   "packageManager": "pnpm@9.12.0",
   "scripts": {
