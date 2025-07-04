@@ -2,7 +2,7 @@ changelog_file=$REPO_ROOT/CHANGELOG.md
 breaking_changes_message_file=$REPO_ROOT/scripts/breaking-change-message.txt
 
 get_current_version() {
-  head --lines=3 "$changelog_file" | tail --lines=1 | awk '{ print $2 }'
+  sed --quiet '3p' "$changelog_file" | awk '{ print $2 }'
 }
 add_breaking_changes_message() {
   local compatible_semver=$1
