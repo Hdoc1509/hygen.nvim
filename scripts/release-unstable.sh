@@ -31,7 +31,7 @@ breaking_changes_count=$(
 
 echo -e '[RELEASE]: Unstable version release!\n'
 
-# genrate changelog and update version
+# generate changelog and update version
 pnpm changeset version
 
 # NOTE: uncomment to test
