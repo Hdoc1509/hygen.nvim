@@ -4,9 +4,6 @@ breaking_changes_message_file=$REPO_ROOT/scripts/breaking-change-message.txt
 get_current_version() {
   head --lines=3 "$changelog_file" | tail --lines=1 | awk '{ print $2 }'
 }
-write_initial_release_message() {
-  sed -i "5 s/.*/### Initial release/" "$changelog_file"
-}
 add_breaking_changes_message() {
   local compatible_semver=$1
   local previous_version=$2

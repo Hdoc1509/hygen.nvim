@@ -11,8 +11,8 @@ if ! [[ -f CHANGELOG.md ]]; then
 
   pnpm changeset version
 
-  # changelog is now generated
-  write_initial_release_message
+  # message of initial release
+  sed -i "5 s/.*/### Initial release/" "$changelog_file"
 
   exit 0
 fi
