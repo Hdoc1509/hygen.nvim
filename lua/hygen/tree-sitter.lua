@@ -29,12 +29,16 @@ function M.setup()
   vim.treesitter.query.add_directive(
     "inject-hygen-tmpl!",
     function(_, _, bufnr, _, metadata)
-      local subext = get_hygen_subext(bufnr)
-      if subext == nil then
+      local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
+      local subext = get_hygen_subext(filename)
+      local filetype = vim.filetype.match({
+        filename = vim.fn.fnamemodify(filename, ":t:r"),
+      })
+
+      if subext == nil and filetype == nil then
         return
       end
 
-      local filetype = vim.filetype.match({ filename = "name." .. subext })
       local parser =
         ts_parsers.ft_to_lang(ext_to_ft[subext] or filetype or subext)
 

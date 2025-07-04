@@ -1,1 +1,1 @@
-au BufNewFile,BufRead *.*.hygen setl filetype=hygen
+au BufNewFile,BufRead *.hygen setl filetype=hygen
