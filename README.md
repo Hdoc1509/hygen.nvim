@@ -143,13 +143,8 @@ pattern `<file-name>.(ext).hygen`.
 
 ## Dynamic injection
 
-Dynamic injection is applied to template body, based on file extension.
-
-Target `parser` to inject will be extracted from `file.(ext).hygen`.
-
-> [!NOTE]
-> See [dynamic injection][hygen-template-dynamic-injection] of
-> `tree-sitter-hygen-template` for more information.
+Dynamic injection is applied following the [file naming convention of
+`tree-sitter-hygen-template`][hygen-template-filename]
 
 <!-- TODO: add screenshots with and without using `hygen.web-devicons.get_icon()`
 utility -->
@@ -181,6 +176,5 @@ Thanks to [@ngynkvn](https://github.com/ngynkvn) for
 [hygen-template]: https://github.com/hdoc1509/tree-sitter-hygen-template
 [hygen-template-grammar]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/grammar.js
 [hygen-template-queries]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/queries
-[hygen-template-dynamic-injection]: https://github.com/Hdoc1509/tree-sitter-hygen-template?tab=readme-ov-file#dynamic-injection
 [hygen-template-filename]: https://github.com/Hdoc1509/tree-sitter-hygen-template#file-naming-convention
 [hygen-template-requirements]: https://github.com/Hdoc1509/tree-sitter-hygen-template?tab=readme-ov-file#parser-requirements
