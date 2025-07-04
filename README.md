@@ -182,5 +182,5 @@ Thanks to [@ngynkvn](https://github.com/ngynkvn) for
 [hygen-template-grammar]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/grammar.js
 [hygen-template-queries]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/queries
 [hygen-template-dynamic-injection]: https://github.com/Hdoc1509/tree-sitter-hygen-template?tab=readme-ov-file#dynamic-injection
-[hygen-template-filename]: https://github.com/Hdoc1509/tree-sitter-hygen-template?tab=readme-ov-file#file-name-pattern-convention
+[hygen-template-filename]: https://github.com/Hdoc1509/tree-sitter-hygen-template#file-naming-convention
 [hygen-template-requirements]: https://github.com/Hdoc1509/tree-sitter-hygen-template?tab=readme-ov-file#parser-requirements
