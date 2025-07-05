@@ -141,15 +141,15 @@ examples.
 
 ### [`render-markdown.nvim`](https://github.com/MeanderingProgrammer/render-markdown.nvim)
 
+> [!IMPORTANT]
+> Be sure to set `hygen.nvim` as a dependency and to load `render-markdown.nvim`
+> for `hygen` filetype.
+
 <details>
   <summary>Configuration example</summary>
 
 The following snippet will allow to attach only to `hygen` files that has `md`
 or `mdx` as subextension.
-
-> [!IMPORTANT]
-> Be sure to set `hygen.nvim` as a dependency and to load `render-markdown.nvim`
-> for `hygen` filetype.
 
 ```lua
 local hygen_utils = require('hygen.utils')
@@ -176,11 +176,11 @@ require("render-markdown").setup({
 
 ### [`tabby.nvim`](https://github.com/nanozuki/tabby.nvim)
 
-<details>
-  <summary>Configuration example</summary>
-
 > [!IMPORTANT]
 > Be sure to set `hygen.nvim` and `nvim-web-devicons` as a dependencies
+
+<details>
+  <summary>Configuration example</summary>
 
 ```lua
 local hygen_devicons = require('hygen.web-devicons')
@@ -204,11 +204,11 @@ require("tabby").setup({
 
 ### [`incline.nvim`](https://github.com/b0o/incline.nvim)
 
-<details>
-  <summary>Configuration example</summary>
-
 > [!IMPORTANT]
 > Be sure to set `hygen.nvim` and `nvim-web-devicons` as a dependencies
+
+<details>
+  <summary>Configuration example</summary>
 
 ```lua
 local hygen_devicons = require('hygen.web-devicons')
@@ -232,11 +232,11 @@ require("incline").setup({
 
 ### [`mini.files`](https://github.com/echasnovski/mini.files)
 
-<details>
-  <summary>Configuration example</summary>
-
 > [!IMPORTANT]
 > Be sure to set `hygen.nvim` and `nvim-web-devicons` as a dependencies
+
+<details>
+  <summary>Configuration example</summary>
 
 ```lua
 local hygen_devicons = require('hygen.web-devicons')
