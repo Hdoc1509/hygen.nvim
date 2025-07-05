@@ -120,9 +120,9 @@ injection will only take effect in `hygen` files that has `bash` parser injected
 > [!NOTE]
 > This utillity requires `nvim-web-devicons` plugin.
 
-`hygen.web-devicons` module exports a `get_icon(filename)` utility. It fallbacks
-to `get_icon_color()` utility of `nvim-web-devicons` if `filename` does not match
-naming convention.
+The [`hygen.web-devicons`](./lua/hygen/web-devicons.lua) module exports the
+`get_icon(filename)` utility. It fallbacks to `get_icon_color()` utility of
+`nvim-web-devicons` if `filename` does not match naming convention.
 
 ```lua
 local hygen_devicons = require("hygen.web-devicons")
