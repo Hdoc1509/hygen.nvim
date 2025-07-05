@@ -8,7 +8,7 @@ previous_version=$(get_current_version)
 
 pnpm changeset version
 
-major_change_count=$(head --line=5 CHANGELOG.md | grep --count "Major")
+major_change_count=$(sed --quiet '5p' "$REPO_ROOT"/CHANGELOG.md | grep --count "Major")
 
 # NOTE: uncomment to test
 # major_change_count=1
