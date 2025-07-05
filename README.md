@@ -218,10 +218,6 @@ require("incline").setup({
     local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
     local icon, icon_color = hygen_devicons.get_icon(filename)
 
-    if filename == '' then
-      filename = '[No Name]'
-    end
-
     -- NOTE: use `icon` and `icon_color` to fit your needs
     return { --[[ ... ]] }
   end,
