@@ -1,4 +1,4 @@
-<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD024 MD033 -->
 
 # hygen.nvim
 
@@ -31,43 +31,48 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 
 ### [`lazy.nvim`](https://github.com/folke/lazy.nvim)
 
+#### `nvim-treesitter`
+
 ```lua
 {
-  {
-    -- tree-sitter stuff
-    "nvim-treesitter/nvim-treesitter",
-    dependencies = { "Hdoc1509/hygen.nvim" },
-    config = function()
-      -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
-      require("hygen.tree-sitter").setup()
+  "nvim-treesitter/nvim-treesitter",
+  dependencies = { "Hdoc1509/hygen.nvim" },
+  config = function()
+    -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
+    require("hygen.tree-sitter").setup()
 
-      require("nvim-treesitter.configs").setup({
-        ensure_installed = {
-          "bash", -- optional
-          "embedded_template", -- required
-          "javascript", -- optional
-          "hygen_template", -- required
-        },
-      })
-    end,
-  },
-  {
-    -- nvim-web-devicons stuff
-    "nvim-tree/nvim-web-devicons",
-    dependencies = { "Hdoc1509/hygen.nvim" },
-    config = function()
-      require("nvim-web-devicons").setup({})
-      require("hygen.web-devicons").setup()
-    end,
-  }
+    require("nvim-treesitter.configs").setup({
+      ensure_installed = {
+        "bash", -- optional
+        "embedded_template", -- required
+        "javascript", -- optional
+        "hygen_template", -- required
+      },
+    })
+  end,
 }
+```
+
+#### `nvim-web-devicons`
+
+```lua
+{
+  "nvim-tree/nvim-web-devicons",
+  dependencies = { "Hdoc1509/hygen.nvim" },
+  config = function()
+    require("nvim-web-devicons").setup({})
+    require("hygen.web-devicons").setup()
+  end,
+}
+
 ```
 
 ### [`packer.nvim`](https://github.com/wbthomason/packer.nvim)
 
+#### `nvim-treesitter`
+
 ```lua
--- tree-sitter stuff
-use {
+use({
   "nvim-treesitter/nvim-treesitter",
   requires = { "Hdoc1509/hygen.nvim" },
   config = function()
@@ -83,17 +88,20 @@ use {
       },
     })
   end,
-}
+})
+```
 
--- nvim-web-devicons stuff
-use {
+#### `nvim-web-devicons`
+
+```lua
+use({
   "nvim-tree/nvim-web-devicons",
   requires = { "Hdoc1509/hygen.nvim" },
   config = function()
     require("nvim-web-devicons").setup({})
     require("hygen.web-devicons").setup()
   end,
-}
+})
 ```
 
 ## `inject-hygen-ejs!` directive
