@@ -1,3 +1,5 @@
+<!-- markdownlint-disable MD033 -->
+
 # hygen.nvim
 
 Neovim plugin that integrates [`tree-sitter-hygen-template`][hygen-template]
@@ -5,6 +7,9 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 
 ![Hygen template with Markdown parser injected](https://github.com/user-attachments/assets/e0357098-d9f4-4bee-9a9d-982cc682f02d)
 
+> [!NOTE]
+> See [integrations](#integrations) section to learn how to integrate
+> `hygen.nvim` with other plugins.
 
 ## Features
 
@@ -131,6 +136,129 @@ local icon, icon_color = hygen_devicons.get_icon("custom.md.hygen")
 
 See screenshots of [Dynamic injection](#dynamic-injection) section for visual
 examples.
+
+## Integrations
+
+### [`render-markdown.nvim`](https://github.com/MeanderingProgrammer/render-markdown.nvim)
+
+<details>
+  <summary>Configuration example</summary>
+
+The following snippet will allow to attach only to `hygen` files that has `md`
+or `mdx` as subextension.
+
+> [!IMPORTANT]
+> Be sure to set `hygen.nvim` as a dependency and to load `render-markdown.nvim`
+> for `hygen` filetype.
+
+```lua
+local hygen_utils = require('hygen.utils')
+local allowed_hygen_subext = { 'md', 'mdx' }
+
+require("render-markdown").setup({
+  ignore = function(bufnr)
+    local filename = vim.api.nvim_buf_get_name(bufnr)
+    local extension = vim.fn.fnamemodify(filename, ":e")
+
+    if extension == "hygen" then
+      return not vim.tbl_contains(
+        allowed_hygen_subext,
+        hygen_utils.get_hygen_subext(filename)
+      )
+    else
+      return false
+    end
+  end,
+})
+```
+
+</details>
+
+### [`tabby.nvim`](https://github.com/nanozuki/tabby.nvim)
+
+<details>
+  <summary>Configuration example</summary>
+
+> [!IMPORTANT]
+> Be sure to set `hygen.nvim` and `nvim-web-devicons` as a dependencies
+
+```lua
+local hygen_devicons = require('hygen.web-devicons')
+
+require("tabby").setup({
+  line = function(line)
+    return {
+      line.tabs().foreach(function(tab)
+        local filename = tab.current_win().buf_name()
+        local icon, icon_color = hygen_devicons.get_icon(filename)
+
+        -- NOTE: use `icon` and `icon_color` to fit your needs
+        return { --[[ ... ]] }
+      end),
+    }
+  end,
+})
+```
+
+</details>
+
+### [`incline.nvim`](https://github.com/b0o/incline.nvim)
+
+<details>
+  <summary>Configuration example</summary>
+
+> [!IMPORTANT]
+> Be sure to set `hygen.nvim` and `nvim-web-devicons` as a dependencies
+
+```lua
+local hygen_devicons = require('hygen.web-devicons')
+
+require("incline").setup({
+  render = function(props)
+    local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
+    local icon, icon_color = hygen_devicons.get_icon(filename)
+
+    if filename == '' then
+      filename = '[No Name]'
+    end
+
+    -- NOTE: use `icon` and `icon_color` to fit your needs
+    return { --[[ ... ]] }
+  end,
+})
+```
+
+</details>
+
+### [`mini.files`](https://github.com/echasnovski/mini.files)
+
+<details>
+  <summary>Configuration example</summary>
+
+> [!IMPORTANT]
+> Be sure to set `hygen.nvim` and `nvim-web-devicons` as a dependencies
+
+```lua
+local hygen_devicons = require('hygen.web-devicons')
+
+require("mini.files").setup({
+  content = {
+    prefix = function(fs_entry)
+      local name = fs_entry.name
+      local extension = vim.fn.fnamemodify(name, ':e')
+
+      if extension == 'hygen' then
+        local icon = hygen_devicons.get_icon(name)
+        return icon .. ' ', 'DevIconHygen'
+      else
+        return MiniFiles.default_prefix(fs_entry)
+      end
+    end,
+  },
+})
+```
+
+</details>
 
 ## Dynamic injection
 
