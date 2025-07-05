@@ -3,9 +3,8 @@
 Neovim plugin that integrates [`tree-sitter-hygen-template`][hygen-template]
 to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 
-![Hygen template with Markdown parser injected](https://github.com/user-attachments/assets/4d386909-d889-4e4c-a138-9adc5d70920c)
+![Hygen template with Markdown parser injected](https://github.com/user-attachments/assets/e0357098-d9f4-4bee-9a9d-982cc682f02d)
 
-> Hygen template with Markdown parser injected
 
 ## Features
 
@@ -137,20 +136,39 @@ See screenshots of [Dynamic injection](#dynamic-injection) section for examples.
 Dynamic injection is applied following the [file naming convention of
 `tree-sitter-hygen-template`][hygen-template-filename]
 
-<!-- TODO: add screenshots with and without using `hygen.web-devicons.get_icon()`
-utility -->
+### `vite.config.ts.hygen`
 
-### `file.ts.hygen`
+![vite.config.ts.hygen](https://github.com/user-attachments/assets/d76b78d7-6dcf-4533-ad1e-ad4485ddae66)
 
-![Hygen template with typescript parser injected](https://github.com/user-attachments/assets/0c0e7fd9-c1ee-4fea-9515-0a012eae1316)
+> Normal icon
 
-### `file.astro.hygen`
+---
 
-![Hygen template with astro parser injected](https://github.com/user-attachments/assets/fbe4fa0f-526d-44bf-afb1-3604e011b3ec)
+![vite.config.ts.hygen with hygen-ed colored icon](https://github.com/user-attachments/assets/0b35474f-31ae-44fb-b112-e9c792d44bd4)
 
-### `file.json.hygen`
+### `Layout.astro.hygen`
 
-![Hygen template with json parser injected](https://github.com/user-attachments/assets/da3ef597-b92f-4a43-8540-429ec28c208a)
+![Layout.astro.hygen](https://github.com/user-attachments/assets/8b226ddb-9776-4e31-8e60-ccd7c6777f17)
+
+> Normal icon
+
+---
+
+![Layout.astro.hygen with hygen-ed colored icon](https://github.com/user-attachments/assets/4bee8cc5-74ed-4246-abfb-9da4b5abdc05)
+
+> Hygen-ed colored icon
+
+### `package.json.hygen`
+
+![package.json.hygen](https://github.com/user-attachments/assets/b86ada76-45fa-426f-8fdf-e72793cf9f95)
+
+> Normal icon
+
+---
+
+![package.json.hygen with hygen-ed colored icon](https://github.com/user-attachments/assets/cbbbaafe-4a16-4b64-bbae-639dbcdb6535)
+
+> Hygen-ed colored icon
 
 ## Updates
 
