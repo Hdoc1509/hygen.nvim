@@ -113,7 +113,7 @@ injection will only take effect in `hygen` files that has `bash` parser injected
 ## Hygen-ed colored icons
 
 > [!NOTE]
-> This feature requires `nvim-web-devicons` plugin.
+> This utillity requires `nvim-web-devicons` plugin.
 
 `hygen.web-devicons` module exports a `get_icon(filename)` utility. It fallbacks
 to `get_icon_color()` utility of `nvim-web-devicons` if `filename` does not match
@@ -129,7 +129,8 @@ local icon, icon_color = hygen_devicons.get_icon("README.md.hygen")
 local icon, icon_color = hygen_devicons.get_icon("custom.md.hygen")
 ```
 
-See screenshots of [Dynamic injection](#dynamic-injection) section for examples.
+See screenshots of [Dynamic injection](#dynamic-injection) section for visual
+examples.
 
 ## Dynamic injection
 
