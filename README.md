@@ -7,16 +7,14 @@ to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
 
 ![Hygen template with Markdown parser injected](https://github.com/user-attachments/assets/e0357098-d9f4-4bee-9a9d-982cc682f02d)
 
-> [!NOTE]
-> See [integrations](#integrations) section to learn how to integrate
-> `hygen.nvim` with other plugins.
-
 ## Features
 
-- Syntax highlighting for [Hygen](https://www.hygen.io/) templates.
-- Dynamic parser injection based on file extension (see [dynamic injection](#dynamic-injection))
+- Syntax highlighting for `Hygen` templates thanks to
+  [`tree-sitter-hygen-template`][hygen-template]
+- [Dynamic parser injection](#dynamic-injection)
 - [New directive](#inject-hygen-ejs-directive) to customize injections
 - Utility to get [hygen-ed colored icons](#hygen-ed-colored-icons)
+- [Integrations](#integrations) with other plugins
 
 ## Requirements
 
