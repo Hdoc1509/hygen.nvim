@@ -4,14 +4,12 @@ export REPO_ROOT
 # shellcheck disable=SC1091
 source "$REPO_ROOT"/scripts/utils.sh
 
-# INITIAL RELEASE
 if ! [[ -f CHANGELOG.md ]]; then
   echo "[RELEASE]: Initial release!"
   echo -e '[RELEASE]: Breaking changes check will be skipped!\n'
 
   pnpm changeset version
 
-  # message of initial release
   sed -i "5 s/.*/### Initial release/" "$changelog_file"
 
   exit 0
@@ -19,10 +17,8 @@ fi
 
 get_last_tag() { git describe --tags --abbrev=0; }
 
-# NORMAL RELEASE
 previous_version=$(get_current_version)
 
-# changes since last release
 # inject:regex:
 unstable_message_regex='^\w+(\(.*\))?:!'
 breaking_changes_count=$(
@@ -32,7 +28,6 @@ breaking_changes_count=$(
 
 echo -e '[RELEASE]: Unstable version release!\n'
 
-# generate changelog and update version
 pnpm changeset version
 
 # NOTE: uncomment to test

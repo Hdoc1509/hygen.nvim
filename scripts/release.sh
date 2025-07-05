@@ -6,7 +6,6 @@ source "$REPO_ROOT"/scripts/utils.sh
 
 previous_version=$(get_current_version)
 
-# generate changelog and update version
 pnpm changeset version
 
 major_change_count=$(head --line=5 CHANGELOG.md | grep --count "Major")
