@@ -2,8 +2,7 @@
 
 # hygen.nvim
 
-Neovim plugin that integrates [`tree-sitter-hygen-template`][hygen-template]
-to provide syntax highlighting for [Hygen](https://www.hygen.io/) templates.
+Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
 
 ![Hygen template with Markdown parser injected](https://github.com/user-attachments/assets/e0357098-d9f4-4bee-9a9d-982cc682f02d)
 
