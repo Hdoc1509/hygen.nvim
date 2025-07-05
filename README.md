@@ -19,8 +19,8 @@ Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
 
 - `Neovim >= 0.9.0`
 - [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter)
-- [Parser requirements][hygen-template-requirements] of
-  [`tree-sitter-hygen-template`][hygen-template]
+- [Parser requirements of
+  `tree-sitter-hygen-template`][hygen-template-requirements]
 - Icon provider (optional, but recommended):
   - [`nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
 
@@ -304,7 +304,7 @@ Dynamic injection is applied following the [file naming convention of
 
 ## Updates
 
-This plugin will follow changes of [`tree-sitter-hygen-template`][hygen-template]:
+This plugin will follow changes of `tree-sitter-hygen-template`:
 
 - [`queries`][hygen-template-queries] updates
 - [`grammar`][hygen-template-grammar] updates
