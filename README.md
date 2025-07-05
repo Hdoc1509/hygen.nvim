@@ -148,8 +148,8 @@ examples.
 <details>
   <summary>Configuration example</summary>
 
-The following snippet will allow to attach only to `hygen` files that has `md`
-or `mdx` as subextension.
+The following snippet will allow to attach to `hygen` files that has `md` or
+`mdx` as subextension.
 
 ```lua
 local hygen_utils = require('hygen.utils')
