@@ -275,6 +275,8 @@ Dynamic injection is applied following the [file naming convention of
 
 ![vite.config.ts.hygen with hygen-ed colored icon](https://github.com/user-attachments/assets/0b35474f-31ae-44fb-b112-e9c792d44bd4)
 
+> Hygen-ed colored icon
+
 ### `Layout.astro.hygen`
 
 ![Layout.astro.hygen](https://github.com/user-attachments/assets/8b226ddb-9776-4e31-8e60-ccd7c6777f17)
