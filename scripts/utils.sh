@@ -29,10 +29,10 @@ add_breaking_changes_message() {
   echo "[RELEASE]: Breaking changes detected!"
   echo "[RELEASE]: Generating breaking change message..."
 
-  sed -i "4r $breaking_changes_message_file" CHANGELOG.md
-  sed -i "s/{{ compatible_semver }}/$compatible_semver/" CHANGELOG.md
-  sed -i "s/{{ version_lazy }}/$version_lazy/" CHANGELOG.md
-  sed -i "s/{{ version_packer }}/$version_packer/" CHANGELOG.md
+  sed -i "4r $breaking_changes_message_file" "$changelog_file"
+  sed -i "s/{{ compatible_semver }}/$compatible_semver/" "$changelog_file"
+  sed -i "s/{{ version_lazy }}/$version_lazy/" "$changelog_file"
+  sed -i "s/{{ version_packer }}/$version_packer/" "$changelog_file"
 
   echo "[RELEASE]: Breaking changes message generated!"
 }
