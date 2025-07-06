@@ -1,5 +1,5 @@
 changelog_file=$REPO_ROOT/CHANGELOG.md
-breaking_changes_message_file=$REPO_ROOT/scripts/breaking-change-message.txt
+breaking_changes_message_file=$REPO_ROOT/scripts/breaking-change-message.md
 
 get_current_version() {
   sed --quiet '3p' "$changelog_file" | awk '{ print $2 }'
