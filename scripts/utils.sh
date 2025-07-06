@@ -46,14 +46,11 @@ reminder_message() {
   echo
   echo "[RELEASE]: Release reminder!"
   echo "[RELEASE]: If all changes are correct, update lock file by running:"
-  echo -n "> "
   # inject:bash:
-  echo -n "pnpm install"
-  echo -e "\n"
+  echo "> pnpm install"
+  echo
   echo "[RELEASE]: Don't forget to commit the changes!"
   echo "[RELEASE]: Don't forget to generate git tags:"
-  echo -n "> "
   # inject:bash:
-  echo -n "npx changeset tag"
-  echo
+  echo "> npx changeset tag"
 }
