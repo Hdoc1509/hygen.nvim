@@ -6,7 +6,7 @@
   "author": "Héctor Ochoa <hector.ochoa.dev@gmail.com>",
   "packageManager": "pnpm@9.12.0",
   "scripts": {
-    "plugin:release": "bash ./scripts/release-unstable.sh"
+    "plugin:release": "bash ./scripts/release-manager.sh"
   },
   "devDependencies": {
     "@changesets/cli": "2.27.9",

@@ -1,9 +1,14 @@
 changelog_file=$REPO_ROOT/CHANGELOG.md
 breaking_changes_message_file=$REPO_ROOT/scripts/breaking-change-message.md
 
-get_current_version() {
-  sed --quiet '3p' "$changelog_file" | awk '{ print $2 }'
+trigger_release() {
+  if ! pnpm changeset version; then
+    echo
+    echo "[RELEASE]: Error while generating changelog!"
+    exit 1
+  fi
 }
+
 add_breaking_changes_message() {
   local compatible_semver=$1
   local previous_version=$2
@@ -35,4 +40,20 @@ add_breaking_changes_message() {
   sed -i "s/{{ version_packer }}/$version_packer/" "$changelog_file"
 
   echo "[RELEASE]: Breaking changes message generated!"
+}
+
+reminder_message() {
+  echo
+  echo "[RELEASE]: Release reminder!"
+  echo "[RELEASE]: If all changes are correct, update lock file by running:"
+  echo -n "> "
+  # inject:bash:
+  echo -n "pnpm install"
+  echo -e "\n"
+  echo "[RELEASE]: Don't forget to commit the changes!"
+  echo "[RELEASE]: Don't forget to generate git tags:"
+  echo -n "> "
+  # inject:bash:
+  echo -n "npx changeset tag"
+  echo
 }
