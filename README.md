@@ -12,7 +12,7 @@ Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
   [`tree-sitter-hygen-template`][hygen-template]
 - [Dynamic parser injection](#dynamic-injection)
 - [New directive](#inject-hygen-ejs-directive) to customize injections
-- Utility to get [hygen-ed colored icons](#hygen-ed-colored-icons)
+- Utility to get [hygen-colored icons](#hygen-colored-icons)
 - [Integrations](#integrations) with other plugins
 
 ## Requirements
@@ -120,7 +120,7 @@ Allows to inject `ejs` in [dynamic-injection](#dynamic-injection), i.e., given
 The example query will inject `ejs` to `bash` strings that contain `<%=`. This
 injection will only take effect in `hygen` files that has `bash` parser injected.
 
-## Hygen-ed colored icons
+## Hygen-colored icons
 
 > [!NOTE]
 > This utillity requires `nvim-web-devicons` plugin.
@@ -274,9 +274,9 @@ Dynamic injection is applied following the [file naming convention of
 
 ---
 
-![vite.config.ts.hygen with hygen-ed colored icon](https://github.com/user-attachments/assets/0b35474f-31ae-44fb-b112-e9c792d44bd4)
+![vite.config.ts.hygen with hygen-colored icon](https://github.com/user-attachments/assets/0b35474f-31ae-44fb-b112-e9c792d44bd4)
 
-> Hygen-ed colored icon
+> Hygen-colored icon
 
 ### `Layout.astro.hygen`
 
@@ -286,9 +286,9 @@ Dynamic injection is applied following the [file naming convention of
 
 ---
 
-![Layout.astro.hygen with hygen-ed colored icon](https://github.com/user-attachments/assets/4bee8cc5-74ed-4246-abfb-9da4b5abdc05)
+![Layout.astro.hygen with hygen-colored icon](https://github.com/user-attachments/assets/4bee8cc5-74ed-4246-abfb-9da4b5abdc05)
 
-> Hygen-ed colored icon
+> Hygen-colored icon
 
 ### `package.json.hygen`
 
@@ -298,9 +298,9 @@ Dynamic injection is applied following the [file naming convention of
 
 ---
 
-![package.json.hygen with hygen-ed colored icon](https://github.com/user-attachments/assets/cbbbaafe-4a16-4b64-bbae-639dbcdb6535)
+![package.json.hygen with hygen-colored icon](https://github.com/user-attachments/assets/cbbbaafe-4a16-4b64-bbae-639dbcdb6535)
 
-> Hygen-ed colored icon
+> Hygen-colored icon
 
 ## Updates
 
