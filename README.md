@@ -41,7 +41,6 @@ Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
         "bash", -- optional
-        "embedded_template", -- required
         "javascript", -- optional
         "hygen_template", -- required
       },
@@ -79,7 +78,6 @@ use({
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
         "bash", -- optional
-        "embedded_template", -- required
         "javascript", -- optional
         "hygen_template", -- required
       },
@@ -103,8 +101,14 @@ use({
 
 ## `inject-hygen-ejs!` directive
 
-Allows to inject `ejs` in [dynamic-injection](#dynamic-injection), i.e., given
-`after/queries/bash/injections.scm`:
+> [!IMPORTANT]
+> This directive requires `tree-sitter-embedded-template` parser.
+>
+> Add `embedded_template` to `ensured_installed` list in
+> `nvim-treesitter.configs.setup()`
+
+This directive allows to inject `ejs` in [dynamic-injection](#dynamic-injection),
+i.e., give `after/queries/bash/injections.scm` in user's config directory:
 
 ```query
 ; extends
@@ -117,8 +121,9 @@ Allows to inject `ejs` in [dynamic-injection](#dynamic-injection), i.e., given
     (#inject-hygen-ejs!)))
 ```
 
-The example query will inject `ejs` to `bash` strings that contain `<%=`. This
-injection will only take effect in `hygen` files that has `bash` parser injected.
+The example query will inject `ejs` to `bash` strings that contain `<%=` and are
+also string arguments of a command. This injection will only take effect in
+`hygen` files that has `bash` parser injected.
 
 ## Hygen-colored icons
 
