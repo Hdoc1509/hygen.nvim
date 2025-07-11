@@ -16,7 +16,10 @@ release_major_0() {
 
   trigger_release
 
-  if [[ $breaking_changes_count -gt 0 || $BREAKING_RELEASE_TEST -eq 1 ]]; then
+  # NOTE: uncomment to test
+  # breaking_changes_count=1
+
+  if [[ $breaking_changes_count -gt 0 ]]; then
     add_breaking_changes_message "patch" "$previous_version"
   fi
 

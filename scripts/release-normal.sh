@@ -10,7 +10,10 @@ release_normal() {
     sed --quiet '5p' "$changelog_file" | grep --count "Major"
   )
 
-  if [[ $breaking_changes_count -gt 0 || $RELEASE_TEST -eq 1 ]]; then
+  # NOTE: uncomment to test
+  # breaking_changes_count=1
+
+  if [[ $breaking_changes_count -gt 0 ]]; then
     add_breaking_changes_message "minor" "$previous_version"
   fi
 
