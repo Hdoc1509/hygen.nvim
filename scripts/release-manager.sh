@@ -21,7 +21,7 @@ previous_major=$(cut --delimiter=. --fields=1 <<<"$previous_version")
 
 if [[ $previous_major -eq 0 ]]; then
   source "$REPO_ROOT"/scripts/release-major-0.sh
-  release_major_0 "$previous_version"
+  release_major_0 "$previous_version" "$changelog_file"
 else
   source "$REPO_ROOT"/scripts/release-normal.sh
   release_normal "$previous_version" "$changelog_file"

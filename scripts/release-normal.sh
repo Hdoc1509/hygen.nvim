@@ -15,7 +15,7 @@ release_normal() {
   # breaking_changes_count=1
 
   if [[ $breaking_changes_count -gt 0 ]]; then
-    add_breaking_changes_message "minor" "$previous_version"
+    add_breaking_changes_message "minor" "$previous_version" "$changelog_file"
   fi
 
   reminder_message

@@ -1,4 +1,3 @@
-changelog_file=$REPO_ROOT/CHANGELOG.md
 breaking_changes_message_file=$REPO_ROOT/scripts/breaking-change-message.md
 
 trigger_release() {
@@ -12,6 +11,7 @@ trigger_release() {
 add_breaking_changes_message() {
   local compatible_semver=$1
   local previous_version=$2
+  local changelog_file=$3
   local version_lazy
   local version_packer
   local major_v
