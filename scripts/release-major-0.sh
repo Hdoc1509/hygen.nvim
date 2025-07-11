@@ -5,6 +5,7 @@ _get_last_tag() { git describe --tags --abbrev=0; }
 
 release_major_0() {
   local previous_version=$1
+  local breaking_changes_count
 
   breaking_changes_count=$(
     git log "$(_get_last_tag)"..HEAD --oneline |
