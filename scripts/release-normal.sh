@@ -1,6 +1,7 @@
 release_normal() {
   local previous_version=$1
   local changelog_file=$2
+  local breaking_changes_count
 
   echo -e "[RELEASE]: Normal release!\n"
 
