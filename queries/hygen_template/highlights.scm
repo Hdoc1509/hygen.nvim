@@ -43,3 +43,8 @@
   (metadata
     (value
       (number) @number)))
+
+(template
+  (frontmatter) @frontmatter
+  ((body) @comment
+    (#has-hygen-from-key? @frontmatter)))

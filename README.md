@@ -307,6 +307,12 @@ Dynamic injection is applied following the [file naming convention of
 
 > Hygen-colored icon
 
+### `metadata-from-key.md.hygen`
+
+![Hygen template with ignored body](https://github.com/user-attachments/assets/019a7cb6-ce79-47c5-b4d7-e52d7c04eb91)
+
+> Ignored template's body highlighted as comment
+
 ## Updates
 
 This plugin will follow changes of `tree-sitter-hygen-template`:
