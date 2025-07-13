@@ -30,3 +30,11 @@
   "_%>"
 ] @keyword
   (#set! priority 130))
+
+(frontmatter
+  (metadata
+    (value
+      [
+        (true)
+        (false)
+      ] @boolean)))
