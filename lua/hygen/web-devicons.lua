@@ -27,7 +27,7 @@ function M.get_icon(filename)
   local subext = get_hygen_subext(filename)
   local ext = vim.fn.fnamemodify(filename, ":e")
 
-  if subext == nil or ext ~= "hygen" then
+  if subext == nil and ext ~= "hygen" then
     return devicons.get_icon_color(filename, ext)
   end
 
