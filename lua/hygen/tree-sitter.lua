@@ -48,6 +48,32 @@ function M.setup()
     directive_options
   )
 
+  vim.treesitter.query.add_predicate(
+    "has-hygen-from-key?",
+    function(match, _, bufnr, pred)
+      local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
+      local ext = vim.fn.fnamemodify(filename, ":e")
+
+      if ext ~= "hygen" then
+        return
+      end
+
+      local frontmatter_capture_id = pred[2]
+      local frontmatter_node = match[frontmatter_capture_id]
+
+      if frontmatter_node == nil then
+        return false
+      end
+
+      local frontmatter_text =
+        vim.treesitter.get_node_text(frontmatter_node, bufnr)
+
+      return string.match(frontmatter_text, "\nfrom:") ~= nil
+    end,
+    ---@diagnostic disable-next-line: param-type-mismatch
+    directive_options
+  )
+
   vim.treesitter.query.add_directive(
     "inject-hygen-ejs!",
     function(_, _, bufnr, _, metadata)

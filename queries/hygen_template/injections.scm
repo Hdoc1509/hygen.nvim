@@ -18,6 +18,10 @@
         (#set! injection.language "regex")))))
 
 ; dynamic injection
-((content) @injection.content
-  (#inject-hygen-tmpl!)
-  (#set! injection.combined))
+(template
+  (frontmatter)? @frontmatter
+  (body
+    ((content) @injection.content
+      (#not-has-hygen-from-key? @frontmatter)
+      (#inject-hygen-tmpl! @frontmatter)
+      (#set! injection.combined))))
