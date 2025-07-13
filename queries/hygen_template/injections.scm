@@ -6,9 +6,6 @@
       ((string_value) @injection.content
         (#set! injection.language "bash")))))
 
-((code) @injection.content
-  (#set! injection.language "javascript")
-  (#set! injection.combined))
 (frontmatter
   (metadata
     ((key) @key
@@ -16,6 +13,19 @@
     (value
       ((string_value) @injection.content
         (#set! injection.language "regex")))))
+
+(template
+  (frontmatter)? @frontmatter
+  (body
+    [
+      (directive
+        (code) @injection.content)
+      (output_directive
+        (code) @injection.content)
+    ]
+    (#not-has-hygen-from-key? @frontmatter)
+    (#set! injection.language "javascript")
+    (#set! injection.combined)))
 
 ; dynamic injection
 (template
