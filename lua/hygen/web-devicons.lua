@@ -28,12 +28,15 @@ function M.get_icon(filename)
   local ext = vim.fn.fnamemodify(filename, ":e")
 
   if subext == nil and ext ~= "hygen" then
-    return devicons.get_icon_color(filename, ext)
+    return devicons.get_icon_color(filename, ext, { default = true })
   end
 
   local target_name = vim.fn.fnamemodify(filename, ":t:r")
-  local icon =
-    devicons.get_icon(target_name, vim.fn.fnamemodify(target_name, ":e"))
+  local icon = devicons.get_icon(
+    target_name,
+    vim.fn.fnamemodify(target_name, ":e"),
+    { default = true }
+  )
 
   return icon, main_color
 end
