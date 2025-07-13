@@ -9,7 +9,8 @@ Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
 ## Features
 
 - Syntax highlighting for `Hygen` templates thanks to
-  [`tree-sitter-hygen-template`][hygen-template]
+  [`tree-sitter-hygen-template`][hygen-template]. Compatible with
+  [`v.0.5.0+`][tree-sitter-hygen-template-version]
 - [Dynamic parser injection](#dynamic-injection)
 - [New directive](#inject-hygen-ejs-directive) to customize injections
 - Utility to get [hygen-colored icons](#hygen-colored-icons)
@@ -330,3 +331,4 @@ Thanks to [@ngynkvn](https://github.com/ngynkvn) for
 [hygen-template-queries]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/queries
 [hygen-template-filename]: https://github.com/Hdoc1509/tree-sitter-hygen-template#file-naming-convention
 [hygen-template-requirements]: https://github.com/Hdoc1509/tree-sitter-hygen-template?tab=readme-ov-file#parser-requirements
+[tree-sitter-hygen-template-version]: https://github.com/Hdoc1509/tree-sitter-hygen-template/tree/v0.5.0
