@@ -318,8 +318,8 @@ Dynamic injection is applied following the [file naming convention of
 
 ![Hygen template with ignored body](https://github.com/user-attachments/assets/019a7cb6-ce79-47c5-b4d7-e52d7c04eb91)
 
-> Ignored template's body highlighted as comment because of presence of `from`
-> metadata key
+> [Ignored template's body][ignored-template-body] highlighted as comment
+> because of presence of `from` metadata key
 
 ## Updates
 
@@ -344,3 +344,4 @@ Thanks to [@ngynkvn](https://github.com/ngynkvn) for
 [regex]: https://github.com/tree-sitter/tree-sitter-regex
 [nvim-treesitter]: https://github.com/nvim-treesitter/nvim-treesitter
 [nvim-web-devicons]: https://github.com/nvim-tree/nvim-web-devicons
+[ignored-template-body]: https://github.com/jondot/hygen/blob/master/hygen.io/docs/templates.md#from--shared-templates
