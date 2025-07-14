@@ -19,15 +19,14 @@ Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
 ## Requirements
 
 - `Neovim >= 0.9.0`
-- [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter)
-- [`bash` parser](https://github.com/tree-sitter/tree-sitter-bash) (optional):
-  for `metadata.value` when `metadata.key` is `sh`
-- [`javascript` parser](https://github.com/tree-sitter/tree-sitter-javascript)
-  (optional): for `code` nodes
-- [`regex` parser](https://github.com/tree-sitter/tree-sitter-regex) (optional):
-  for `metadata.value` when `metadata.key` is `after`, `before` or `skip_if`
+- [`nvim-treesitter`][nvim-treesitter]
+- [`bash` parser][bash] (optional): for `metadata.value` when `metadata.key` is
+  `sh`
+- [`javascript` parser][javascript] (optional): for `code` nodes
+- [`regex` parser][regex] (optional): for `metadata.value` when `metadata.key`
+  is `after`, `before` or `skip_if`
 - Icon provider (optional, but recommended):
-  - [`nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
+  - [`nvim-web-devicons`][nvim-web-devicons]
 
 ## Install
 
@@ -335,3 +334,8 @@ Thanks to [@ngynkvn](https://github.com/ngynkvn) for
 [hygen-template-queries]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/queries
 [hygen-template-filename]: https://github.com/Hdoc1509/tree-sitter-hygen-template#file-naming-convention
 [tree-sitter-hygen-template-version]: https://github.com/Hdoc1509/tree-sitter-hygen-template/tree/v0.5.0
+[bash]: https://github.com/tree-sitter/tree-sitter-bash
+[javascript]: https://github.com/tree-sitter/tree-sitter-javascript
+[regex]: https://github.com/tree-sitter/tree-sitter-regex
+[nvim-treesitter]: https://github.com/nvim-treesitter/nvim-treesitter
+[nvim-web-devicons]: https://github.com/nvim-tree/nvim-web-devicons
