@@ -20,8 +20,12 @@ Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
 
 - `Neovim >= 0.9.0`
 - [`nvim-treesitter`](https://github.com/nvim-treesitter/nvim-treesitter)
-- [Parser requirements of
-  `tree-sitter-hygen-template`][hygen-template-requirements]
+- [`bash` parser](https://github.com/tree-sitter/tree-sitter-bash) (optional):
+  for `metadata.value` when `metadata.key` is `sh`
+- [`javascript` parser](https://github.com/tree-sitter/tree-sitter-javascript)
+  (optional): for `code` nodes
+- [`regex` parser](https://github.com/tree-sitter/tree-sitter-regex) (optional):
+  for `metadata.value` when `metadata.key` is `after`, `before` or `skip_if`
 - Icon provider (optional, but recommended):
   - [`nvim-web-devicons`](https://github.com/nvim-tree/nvim-web-devicons)
 
@@ -330,5 +334,4 @@ Thanks to [@ngynkvn](https://github.com/ngynkvn) for
 [hygen-template-grammar]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/grammar.js
 [hygen-template-queries]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/queries
 [hygen-template-filename]: https://github.com/Hdoc1509/tree-sitter-hygen-template#file-naming-convention
-[hygen-template-requirements]: https://github.com/Hdoc1509/tree-sitter-hygen-template?tab=readme-ov-file#parser-requirements
 [tree-sitter-hygen-template-version]: https://github.com/Hdoc1509/tree-sitter-hygen-template/tree/v0.5.0
