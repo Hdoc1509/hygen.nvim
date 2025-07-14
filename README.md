@@ -47,8 +47,10 @@ Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
         "bash", -- optional
-        "javascript", -- optional
+        "embedded_template", -- optional
         "hygen_template", -- required
+        "javascript", -- optional
+        "regex", -- optional
       },
     })
   end,
@@ -84,8 +86,10 @@ use({
     require("nvim-treesitter.configs").setup({
       ensure_installed = {
         "bash", -- optional
-        "javascript", -- optional
+        "embedded_template", -- optional
         "hygen_template", -- required
+        "javascript", -- optional
+        "regex", -- optional
       },
     })
   end,
