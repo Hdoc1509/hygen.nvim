@@ -336,7 +336,7 @@ Thanks to [@ngynkvn](https://github.com/ngynkvn) for
 [hygen-template-grammar]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/grammar.js
 [hygen-template-queries]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/queries
 [hygen-template-filename]: https://github.com/Hdoc1509/tree-sitter-hygen-template#file-naming-convention
-[tree-sitter-hygen-template-version]: https://github.com/Hdoc1509/tree-sitter-hygen-template/tree/v0.5.0
+[tree-sitter-hygen-template-version]: https://github.com/Hdoc1509/tree-sitter-hygen-template/blob/master/CHANGELOG.md#050
 [embedded-template]: https://github.com/tree-sitter/tree-sitter-embedded-template
 [bash]: https://github.com/tree-sitter/tree-sitter-bash
 [javascript]: https://github.com/tree-sitter/tree-sitter-javascript
