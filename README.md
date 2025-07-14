@@ -318,7 +318,8 @@ Dynamic injection is applied following the [file naming convention of
 
 ![Hygen template with ignored body](https://github.com/user-attachments/assets/019a7cb6-ce79-47c5-b4d7-e52d7c04eb91)
 
-> Ignored template's body highlighted as comment
+> Ignored template's body highlighted as comment because of presence of `from`
+> metadata key
 
 ## Updates
 
