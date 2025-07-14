@@ -25,6 +25,8 @@ Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
 - [`javascript` parser][javascript] (optional): for `code` nodes
 - [`regex` parser][regex] (optional): for `metadata.value` when `metadata.key`
   is `after`, `before` or `skip_if`
+- [`embedded_template` parser][embedded-template] (optional): needed for
+  [new directive](#inject-hygen-ejs-directive)
 - Icon provider (optional, but recommended):
   - [`nvim-web-devicons`][nvim-web-devicons]
 
@@ -106,10 +108,7 @@ use({
 ## `inject-hygen-ejs!` directive
 
 > [!IMPORTANT]
-> This directive requires `tree-sitter-embedded-template` parser.
->
-> Add `embedded_template` to `ensured_installed` list in
-> `nvim-treesitter.configs.setup()`
+> This directive requires `embedded_template` parser.
 
 This directive allows to inject `ejs` in [dynamic-injection](#dynamic-injection),
 i.e., give `after/queries/bash/injections.scm` in user's config directory:
@@ -334,6 +333,7 @@ Thanks to [@ngynkvn](https://github.com/ngynkvn) for
 [hygen-template-queries]: https://github.com/hdoc1509/tree-sitter-hygen-template/tree/master/queries
 [hygen-template-filename]: https://github.com/Hdoc1509/tree-sitter-hygen-template#file-naming-convention
 [tree-sitter-hygen-template-version]: https://github.com/Hdoc1509/tree-sitter-hygen-template/tree/v0.5.0
+[embedded-template]: https://github.com/tree-sitter/tree-sitter-embedded-template
 [bash]: https://github.com/tree-sitter/tree-sitter-bash
 [javascript]: https://github.com/tree-sitter/tree-sitter-javascript
 [regex]: https://github.com/tree-sitter/tree-sitter-regex
