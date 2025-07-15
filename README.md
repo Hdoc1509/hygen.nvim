@@ -232,7 +232,7 @@ local hygen_devicons = require('hygen.web-devicons')
 
 require("incline").setup({
   render = function(props)
-    local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
+    local filename = vim.fs.basename(vim.api.nvim_buf_get_name(props.buf))
     local icon, icon_color = hygen_devicons.get_icon(filename)
 
     -- NOTE: use `icon` and `icon_color` to fit your needs
