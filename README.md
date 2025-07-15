@@ -145,10 +145,10 @@ does not match naming convention.
 local hygen_devicons = require("hygen.web-devicons")
 
 -- returns `icon` for `README.md` file, `hygen` color and `hl` group of icon
-local icon, icon_color, icon_hl = hygen_devicons.get_icon("README.md.hygen")
+local icon, color, hl = hygen_devicons.get_icon("README.md.hygen")
 
 -- now returns `icon` for `md` files
-local icon, icon_color, icon_hl = hygen_devicons.get_icon("custom.md.hygen")
+local icon, color, hl = hygen_devicons.get_icon("custom.md.hygen")
 ```
 
 See screenshots of [Dynamic injection](#dynamic-injection) section for visual
