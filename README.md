@@ -138,8 +138,8 @@ also string arguments of a command. This injection will only take effect in
 > This utillity requires `nvim-web-devicons` plugin.
 
 The [`hygen.web-devicons`](./lua/hygen/web-devicons.lua) module exports the
-`get_icon(filename)` utility. It fallbacks to `get_icon_color()` utility of
-`nvim-web-devicons` if `filename` does not match naming convention.
+`get_icon(filename)` utility. It fallbacks to `nvim-web-devicons` if `filename`
+does not match naming convention.
 
 ```lua
 local hygen_devicons = require("hygen.web-devicons")
