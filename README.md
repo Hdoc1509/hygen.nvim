@@ -115,7 +115,7 @@ use({
 > This directive requires `embedded_template` parser.
 
 This directive allows to inject `ejs` in [dynamic-injection](#dynamic-injection),
-i.e., give `after/queries/bash/injections.scm` in user's config directory:
+i.e., having `after/queries/bash/injections.scm` in user's config directory:
 
 ```query
 ; extends
