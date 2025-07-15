@@ -18,27 +18,34 @@ function M.setup()
   devicons.set_icon_by_filetype({ hygen_template = "hygen" })
 end
 
---Returns the icon from subextension and hygen color
---Fallbacks to `devicons.get_icon_color()` if `filename` does not match
---naming convention
+---Returns the `icon` from subextension, hygen `color` and `hl` group of `icon`
+---Fallbacks to `nvim-web-devicons` if `filename` does not match naming
+---convention
 ---@param filename string
----@return string icon, string color
+---@return string icon, string color, string hl
 function M.get_icon(filename)
   local subext = get_hygen_subext(filename)
   local ext = vim.fn.fnamemodify(filename, ":e")
 
   if subext == nil and ext ~= "hygen" then
-    return devicons.get_icon_color(filename, ext, { default = true })
+    local icon, color =
+      devicons.get_icon_color(filename, ext, { default = true })
+    local _, hl = devicons.get_icon(filename, ext, { default = true })
+
+    return icon, color, hl
   end
 
   local target_name = vim.fn.fnamemodify(filename, ":t:r")
-  local icon =
+  local initial_icon =
     devicons.get_icon(target_name, vim.fn.fnamemodify(target_name, ":e"))
 
-  if icon == nil then
-    return devicons.get_icon_color(filename, ext)
+  if initial_icon == nil then
+    local icon, color = devicons.get_icon_color(filename, ext)
+    local _, hl = devicons.get_icon(filename, ext, { default = true })
+
+    return icon, color, hl
   else
-    return icon, main_color
+    return initial_icon, main_color, "DevIconHygen"
   end
 end
 
