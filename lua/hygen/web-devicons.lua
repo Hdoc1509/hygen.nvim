@@ -32,13 +32,14 @@ function M.get_icon(filename)
   end
 
   local target_name = vim.fn.fnamemodify(filename, ":t:r")
-  local icon = devicons.get_icon(
-    target_name,
-    vim.fn.fnamemodify(target_name, ":e"),
-    { default = true }
-  )
+  local icon =
+    devicons.get_icon(target_name, vim.fn.fnamemodify(target_name, ":e"))
 
-  return icon, main_color
+  if icon == nil then
+    return devicons.get_icon_color(filename, ext)
+  else
+    return icon, main_color
+  end
 end
 
 return M
