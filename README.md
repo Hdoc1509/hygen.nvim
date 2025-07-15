@@ -257,9 +257,7 @@ local hygen_devicons = require('hygen.web-devicons')
 require("mini.files").setup({
   content = {
     prefix = function(fs_entry)
-      local name = fs_entry.name
-      local icon, _, hl = hygen_devicons.get_icon(name)
-
+      local icon, _, hl = hygen_devicons.get_icon(fs_entry.name)
       return icon .. ' ', hl
     end,
   },
