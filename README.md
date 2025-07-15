@@ -258,14 +258,9 @@ require("mini.files").setup({
   content = {
     prefix = function(fs_entry)
       local name = fs_entry.name
-      local extension = vim.fn.fnamemodify(name, ':e')
+      local icon, _, hl = hygen_devicons.get_icon(name)
 
-      if extension == 'hygen' then
-        local icon = hygen_devicons.get_icon(name)
-        return icon .. ' ', 'DevIconHygen'
-      else
-        return MiniFiles.default_prefix(fs_entry)
-      end
+      return icon .. ' ', hl
     end,
   },
 })
