@@ -144,7 +144,7 @@ does not match naming convention.
 ```lua
 local hygen_devicons = require("hygen.web-devicons")
 
--- returns `icon` for `README.md` file, `hygen` color and `hl` group of icon
+-- `icon` for `README.md` file, hygen `color` and `hl` group of hygen `color`
 local icon, color, hl = hygen_devicons.get_icon("README.md.hygen")
 
 -- now returns `icon` for `md` files
