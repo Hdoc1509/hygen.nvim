@@ -19,8 +19,6 @@ PREVIOUS_VERSION=$(sed --quiet '3p' "$CHANGELOG_FILE" | awk '{ print $2 }')
 
 if [[ ${PREVIOUS_VERSION:0:1} -eq 0 ]]; then
   source "$REPO_ROOT"/scripts/release-major-0.sh
-  release_major_0
 else
   source "$REPO_ROOT"/scripts/release-normal.sh
-  release_normal
 fi
