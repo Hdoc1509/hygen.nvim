@@ -307,6 +307,16 @@ Dynamic injection is applied following the [file naming convention of
 
 > Hygen-colored icon
 
+### `mini.files`
+
+![mini.files](https://github.com/user-attachments/assets/058b3ffa-4426-437c-86bd-68e816427c04)
+
+> Normal icon
+
+![mini.files with hygen-colored icon](https://github.com/user-attachments/assets/093aa55b-3850-4960-86f7-527b30ec1a84)
+
+> Hygen-colored icon
+
 ### `metadata-from-key.md.hygen`
 
 ![Hygen template with ignored body](https://github.com/user-attachments/assets/019a7cb6-ce79-47c5-b4d7-e52d7c04eb91)
