@@ -5,8 +5,8 @@ source "$REPO_ROOT"/scripts/logger.sh
 source "$REPO_ROOT"/scripts/utils.sh
 
 if ! [[ -f $CHANGELOG_FILE ]]; then
-  echo "[RELEASE]: Initial release!"
-  echo -e '[RELEASE]: Breaking changes check will be skipped!\n'
+  info_log "Initial release!"
+  warn_log "Breaking changes check will be skipped!\n"
 
   trigger_release
 

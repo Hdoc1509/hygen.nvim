@@ -2,9 +2,7 @@ breaking_changes_message_file=$REPO_ROOT/scripts/breaking-change-message.md
 
 trigger_release() {
   if ! pnpm changeset version; then
-    echo
-    echo "[RELEASE]: Error while generating changelog!"
-    exit 1
+    echo && error_log "Error while generating changelog!" && exit 1
   fi
 }
 
@@ -24,31 +22,24 @@ add_breaking_changes_message() {
     version_lazy="tag = 'v$major_v.X.X'\` or \`version = '^$PREVIOUS_VERSION'"
     version_packer="tag = 'v$major_v.*.*'"
   else
-    echo "Invalid compatible semver: $compatible_semver"
-    exit 1
+    error_log "Invalid compatible semver: $compatible_semver" && exit 1
   fi
 
-  echo
-  echo "[RELEASE]: Breaking changes detected!"
-  echo "[RELEASE]: Generating breaking change message..."
+  echo && warn_log "Breaking changes detected!"
+  info_log "Generating breaking change message..."
 
   sed -i "4r $breaking_changes_message_file" "$CHANGELOG_FILE"
   sed -i "s/{{ compatible_semver }}/$compatible_semver/" "$CHANGELOG_FILE"
   sed -i "s/{{ version_lazy }}/$version_lazy/" "$CHANGELOG_FILE"
   sed -i "s/{{ version_packer }}/$version_packer/" "$CHANGELOG_FILE"
 
-  echo "[RELEASE]: Breaking changes message generated!"
+  success_log "Breaking changes message generated!"
 }
 
 reminder_message() {
-  echo
-  echo "[RELEASE]: Release reminder!"
-  echo "[RELEASE]: If all changes are correct, update lock file by running:"
-  # inject:bash:
-  echo "> pnpm install"
-  echo
-  echo "[RELEASE]: Don't forget to commit the changes!"
-  echo "[RELEASE]: Don't forget to generate git tags:"
-  # inject:bash:
-  echo "> npx changeset tag"
+  echo && info_log "If all changes are correct, update lock file by running:"
+  command_snippet "pnpm" "install"
+  echo && warn_log "Don't forget to commit the changes!"
+  echo && warn_log "Don't forget to generate git tags:"
+  command_snippet "pnpm" "changeset tag"
 }

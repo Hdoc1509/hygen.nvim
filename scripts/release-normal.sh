@@ -1,4 +1,4 @@
-echo -e "[RELEASE]: Normal release!\n"
+info_log "Normal release!\n"
 
 trigger_release
 

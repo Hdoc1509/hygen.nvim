@@ -8,7 +8,7 @@ breaking_changes_count=$(
     grep --count --extended-regexp "$unstable_message_regex"
 )
 
-echo -e "[RELEASE]: Major 0 release!\n"
+info_log "Major 0 release!\n"
 
 trigger_release
 
