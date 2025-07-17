@@ -8,22 +8,20 @@ trigger_release() {
   fi
 }
 
-# TODO: remove previous_version argument. it's not needed because of source command
 add_breaking_changes_message() {
   local compatible_semver=$1
-  local previous_version=$2
   local version_lazy
   local version_packer
   local major_v
   local major_minor_v
 
   if [[ $compatible_semver == "patch" ]]; then
-    major_minor_v=$(cut --delimiter=. --fields=1,2 <<<"$previous_version")
-    version_lazy="tag = 'v$major_minor_v.X'\` or \`version = '~$previous_version'"
+    major_minor_v=$(cut --delimiter=. --fields=1,2 <<<"$PREVIOUS_VERSION")
+    version_lazy="tag = 'v$major_minor_v.X'\` or \`version = '~$PREVIOUS_VERSION'"
     version_packer="tag = 'v$major_minor_v.*'"
   elif [[ $compatible_semver == "minor" ]]; then
-    major_v=$(cut --delimiter=. --fields=1 <<<"$previous_version")
-    version_lazy="tag = 'v$major_v.X.X'\` or \`version = '^$previous_version'"
+    major_v=$(cut --delimiter=. --fields=1 <<<"$PREVIOUS_VERSION")
+    version_lazy="tag = 'v$major_v.X.X'\` or \`version = '^$PREVIOUS_VERSION'"
     version_packer="tag = 'v$major_v.*.*'"
   else
     echo "Invalid compatible semver: $compatible_semver"

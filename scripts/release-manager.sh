@@ -15,12 +15,12 @@ if ! [[ -f $CHANGELOG_FILE ]]; then
   exit 0
 fi
 
-previous_version=$(sed --quiet '3p' "$CHANGELOG_FILE" | awk '{ print $2 }')
+PREVIOUS_VERSION=$(sed --quiet '3p' "$CHANGELOG_FILE" | awk '{ print $2 }')
 
-if [[ ${previous_version:0:1} -eq 0 ]]; then
+if [[ ${PREVIOUS_VERSION:0:1} -eq 0 ]]; then
   source "$REPO_ROOT"/scripts/release-major-0.sh
-  release_major_0 "$previous_version"
+  release_major_0
 else
   source "$REPO_ROOT"/scripts/release-normal.sh
-  release_normal "$previous_version"
+  release_normal
 fi
