@@ -1,16 +1,44 @@
-(template
-  (frontmatter
-    (metadata
-      ((key) @key
+(frontmatter
+  (metadata
+    ((key) @key
       (#eq? @key "sh"))
-      ((value ((string_value) @injection.content
-        (#set! injection.language "bash")))))))
+    (value
+      ((string_value) @injection.content
+        (#set! injection.language "bash")))))
 
-((code) @injection.content
-  (#set! injection.language "javascript")
-  (#set! injection.combined))
+(frontmatter
+  (metadata
+    ((key) @key
+      (#any-of? @key "after" "skip_if" "before"))
+    (value
+      ((string_value) @injection.content
+        (#set! injection.language "regex")))))
+
+(frontmatter
+  (metadata
+    (value
+      (output_directive
+        (code) @injection.content
+        (#set! injection.language "javascript")))))
+
+(template
+  (frontmatter)? @frontmatter
+  (body
+    [
+      (directive
+        (code) @injection.content)
+      (output_directive
+        (code) @injection.content)
+    ]
+    (#not-has-hygen-from-key? @frontmatter)
+    (#set! injection.language "javascript")
+    (#set! injection.combined)))
 
 ; dynamic injection
-((content) @injection.content
-  (#inject-hygen-tmpl!)
-  (#set! injection.combined))
+(template
+  (frontmatter)? @frontmatter
+  (body
+    ((content) @injection.content
+      (#not-has-hygen-from-key? @frontmatter)
+      (#inject-hygen-tmpl! @frontmatter)
+      (#set! injection.combined))))
