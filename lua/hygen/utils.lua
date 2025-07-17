@@ -8,13 +8,9 @@ function M.get_hygen_subext(file)
   local filename = type(file) == "number"
       and vim.fs.basename(vim.api.nvim_buf_get_name(file))
     or file
-  local _, _, subext, hygen_ext = string.find(filename, ".*%.(%a+)(%.%a+)")
+  local subext = string.match(filename, ".*%.(%a+)%.hygen")
 
-  if
-    hygen_ext ~= ".hygen"
-    or subext == nil
-    or vim.tbl_contains(not_allowed_subext, subext)
-  then
+  if subext == nil or vim.tbl_contains(not_allowed_subext, subext) then
     return
   end
 
