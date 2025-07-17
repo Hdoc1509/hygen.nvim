@@ -8,10 +8,10 @@ trigger_release() {
   fi
 }
 
+# TODO: remove previous_version argument. it's not needed because of source command
 add_breaking_changes_message() {
   local compatible_semver=$1
   local previous_version=$2
-  local changelog_file=$3
   local version_lazy
   local version_packer
   local major_v
@@ -34,10 +34,10 @@ add_breaking_changes_message() {
   echo "[RELEASE]: Breaking changes detected!"
   echo "[RELEASE]: Generating breaking change message..."
 
-  sed -i "4r $breaking_changes_message_file" "$changelog_file"
-  sed -i "s/{{ compatible_semver }}/$compatible_semver/" "$changelog_file"
-  sed -i "s/{{ version_lazy }}/$version_lazy/" "$changelog_file"
-  sed -i "s/{{ version_packer }}/$version_packer/" "$changelog_file"
+  sed -i "4r $breaking_changes_message_file" "$CHANGELOG_FILE"
+  sed -i "s/{{ compatible_semver }}/$compatible_semver/" "$CHANGELOG_FILE"
+  sed -i "s/{{ version_lazy }}/$version_lazy/" "$CHANGELOG_FILE"
+  sed -i "s/{{ version_packer }}/$version_packer/" "$CHANGELOG_FILE"
 
   echo "[RELEASE]: Breaking changes message generated!"
 }
