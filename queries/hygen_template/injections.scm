@@ -14,6 +14,13 @@
       ((string_value) @injection.content
         (#set! injection.language "regex")))))
 
+(frontmatter
+  (metadata
+    (value
+      (output_directive
+        (code) @injection.content
+        (#set! injection.language "javascript")))))
+
 (template
   (frontmatter)? @frontmatter
   (body
