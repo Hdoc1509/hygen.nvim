@@ -273,37 +273,37 @@ Dynamic injection is applied following the [file naming convention of
 
 ### `vite.config.ts.hygen`
 
-![vite.config.ts.hygen](https://github.com/user-attachments/assets/d76b78d7-6dcf-4533-ad1e-ad4485ddae66)
+![vite.config.ts.hygen](https://github.com/user-attachments/assets/24b3985c-72a2-4696-ae7f-07c563a6ec93)
 
 > Normal icon
 
 ---
 
-![vite.config.ts.hygen with hygen-colored icon](https://github.com/user-attachments/assets/0b35474f-31ae-44fb-b112-e9c792d44bd4)
+![vite.config.ts.hygen with hygen-colored icon](https://github.com/user-attachments/assets/290e7e9b-0d5c-4b16-9624-b195d6923118)
 
 > Hygen-colored icon
 
 ### `Layout.astro.hygen`
 
-![Layout.astro.hygen](https://github.com/user-attachments/assets/8b226ddb-9776-4e31-8e60-ccd7c6777f17)
+![Layout.astro.hygen](https://github.com/user-attachments/assets/b4bcf1e0-f2b7-4e5a-91d0-918c8610206a)
 
 > Normal icon
 
 ---
 
-![Layout.astro.hygen with hygen-colored icon](https://github.com/user-attachments/assets/4bee8cc5-74ed-4246-abfb-9da4b5abdc05)
+![Layout.astro.hygen with hygen-colored icon](https://github.com/user-attachments/assets/4079d0fe-f12b-4f77-b12d-fc01fd9ec60b)
 
 > Hygen-colored icon
 
 ### `package.json.hygen`
 
-![package.json.hygen](https://github.com/user-attachments/assets/b86ada76-45fa-426f-8fdf-e72793cf9f95)
+![package.json.hygen](https://github.com/user-attachments/assets/004e9b0b-2a99-407d-a604-7820f84c643d)
 
 > Normal icon
 
 ---
 
-![package.json.hygen with hygen-colored icon](https://github.com/user-attachments/assets/cbbbaafe-4a16-4b64-bbae-639dbcdb6535)
+![package.json.hygen with hygen-colored icon](https://github.com/user-attachments/assets/de26b3c7-5da3-4dda-8e4c-856cad53a49e)
 
 > Hygen-colored icon
 

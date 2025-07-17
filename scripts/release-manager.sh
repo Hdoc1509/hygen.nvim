@@ -1,6 +1,8 @@
 REPO_ROOT=$(git rev-parse --show-toplevel)
 changelog_file=$REPO_ROOT/CHANGELOG.md
 
+# TODO: update release scripts as in tree-sitter-hygen-template
+
 export REPO_ROOT
 
 source "$REPO_ROOT"/scripts/utils.sh
