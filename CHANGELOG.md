@@ -1,5 +1,11 @@
 # hygen.nvim
 
+## 0.3.1
+
+### Patch Changes
+
+- Set correct config example for `mini.files` integration ([`682430c`](https://github.com/Hdoc1509/hygen.nvim/commit/682430c2ea25be1c10ec314520a7da32a6731334))
+
 ## 0.3.0
 
 ### Minor Changes
