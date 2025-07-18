@@ -257,6 +257,10 @@ local hygen_devicons = require('hygen.web-devicons')
 require("mini.files").setup({
   content = {
     prefix = function(fs_entry)
+      if fs_entry.fs_type == 'directory' then
+        return ' ', 'MiniFilesDirectory'
+      end
+
       local icon, _, hl = hygen_devicons.get_icon(fs_entry.name)
       return icon .. ' ', hl
     end,
