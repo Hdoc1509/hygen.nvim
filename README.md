@@ -125,7 +125,7 @@ i.e., having `after/queries/bash/injections.scm` in user's config directory:
   (string
     (string_content) @injection.content
     (#lua-match? @injection.content "<%%=")
-    (#inject-hygen-ejs!)))
+    (#inject-hygen-ejs! "")))
 ```
 
 The example query will inject `ejs` to `bash` strings that contain `<%=` and are
