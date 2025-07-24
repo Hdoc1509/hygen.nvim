@@ -14,6 +14,7 @@ Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
 - [Dynamic parser injection](#dynamic-injection)
 - [New directive](#inject-hygen-ejs-directive) to customize injections
 - Utility to get [hygen-colored icons](#hygen-colored-icons)
+- [LSP configuration](#lsp-configuration)
 - [Integrations](#integrations) with other plugins
 
 ## Requirements
@@ -269,6 +270,56 @@ require("mini.files").setup({
 ```
 
 </details>
+
+## LSP configuration
+
+The `hygen.ts-query-ls` module exports an LSP configuration for `ts_query_ls`
+server to register the custom directives and predicates used by this plugin.
+
+### [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + neovim < 0.11
+
+> [!IMPORTANT]
+> Be sure to set `hygen.nvim` as a dependency
+
+```lua
+local lspconfig = require('lspconfig')
+local hygen_ts_query_ls = require('hygen.ts-query-ls')
+
+lspconfig.ts_query_ls.setup(vim.tbl_deep_extend('force', {
+  -- your settings
+}, hygen_ts_query_ls))
+```
+
+### vim.lsp.config
+
+<!-- TODO: need to check if it works correctlty -->
+
+> [!IMPORTANT]
+> Be sure to load `hygen.nvim` during startup
+
+```lua
+local hygen_ts_query_ls = require('hygen.ts-query-ls')
+
+vim.lsp.enable('ts_query_ls')
+vim.lsp.config('ts_query_ls', vim.tbl_deep_extend('force', {
+  -- your settings
+}, hygen_ts_query_ls))
+```
+
+### `<rtp>/lsp/` folder
+
+<!-- TODO: need to check if it works correctlty -->
+
+> [!IMPORTANT]
+> Be sure to load `hygen.nvim` during startup
+
+```lua
+local hygen_ts_query_ls = require('hygen.ts-query-ls')
+
+return vim.tbl_deep_extend('force', {
+  -- your settings
+}, hygen_ts_query_ls)
+```
 
 ## Dynamic injection
 
