@@ -30,7 +30,7 @@
       (output_directive
         (code) @injection.content)
     ]
-    (#not-has-hygen-from-key? @frontmatter)
+    (#not-lua-match? @frontmatter "from:")
     (#set! injection.language "javascript")
     (#set! injection.combined)))
 
@@ -39,6 +39,6 @@
   (frontmatter)? @frontmatter
   (body
     ((content) @injection.content
-      (#not-has-hygen-from-key? @frontmatter)
+      (#not-lua-match? @frontmatter "from:")
       (#inject-hygen-tmpl! @frontmatter)
       (#set! injection.combined))))

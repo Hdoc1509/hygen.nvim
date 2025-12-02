@@ -274,7 +274,7 @@ require("mini.files").setup({
 ## LSP configuration
 
 The `hygen.ts-query-ls` module exports an LSP configuration for `ts_query_ls`
-server to register the custom directives and predicates used by this plugin.
+server to register the custom directives used by this plugin.
 
 ### [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + neovim < 0.11
 
