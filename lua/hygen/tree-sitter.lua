@@ -99,9 +99,9 @@ function M.setup()
 
       local ext = vim.fn.fnamemodify(filename, ":e")
 
-      if ext == "ejs" then
+      if ext == "ejs" or vim.bo[bufnr].filetype == "ejs" then
         metadata["injection.language"] = "javascript"
-      elseif ext == "erb" then
+      elseif ext == "erb" or vim.bo[bufnr].filetype == "eruby" then
         metadata["injection.language"] = "ruby"
       end
     end,
