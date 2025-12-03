@@ -7,8 +7,14 @@ local ext_to_ft = {
 
 ---@type table<string, TSDirective>
 local directives = {
-  ["inject-hygen-tmpl!"] = function(_, _, bufnr, _, metadata)
-    local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
+  ["inject-hygen-tmpl!"] = function(_, _, src, _, metadata)
+    -- NOTE: should handle if source is a string? i.e. extract target parser
+    -- from `to:` property
+    if type(src) ~= "number" then
+      return
+    end
+
+    local filename = vim.fs.basename(vim.api.nvim_buf_get_name(src))
     local subext = get_hygen_subext(filename)
     local filetype = vim.filetype.match({
       filename = vim.fn.fnamemodify(filename, ":t:r"),
@@ -23,15 +29,25 @@ local directives = {
 
     metadata["injection.language"] = parser
   end,
-  ["inject-hygen-ejs!"] = function(_, _, bufnr, _, metadata)
-    if get_hygen_subext(bufnr) == nil then
+  ["inject-hygen-ejs!"] = function(_, _, src, _, metadata)
+    -- NOTE: should handle if source is a string?
+    if type(src) ~= "number" then
+      return
+    end
+
+    if get_hygen_subext(src) == nil then
       return
     end
 
     metadata["injection.language"] = "embedded_template"
   end,
-  ["inject-embedded_template!"] = function(_, _, bufnr, _, metadata)
-    local filename = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
+  ["inject-embedded_template!"] = function(_, _, src, _, metadata)
+    -- NOTE: should handle if source is a string?
+    if type(src) ~= "number" then
+      return
+    end
+
+    local filename = vim.fs.basename(vim.api.nvim_buf_get_name(src))
 
     if get_hygen_subext(filename) ~= nil then
       metadata["injection.language"] = "javascript"
@@ -40,9 +56,9 @@ local directives = {
 
     local ext = vim.fn.fnamemodify(filename, ":e")
 
-    if ext == "ejs" or vim.bo[bufnr].filetype == "ejs" then
+    if ext == "ejs" or vim.bo[src].filetype == "ejs" then
       metadata["injection.language"] = "javascript"
-    elseif ext == "erb" or vim.bo[bufnr].filetype == "eruby" then
+    elseif ext == "erb" or vim.bo[src].filetype == "eruby" then
       metadata["injection.language"] = "ruby"
     end
   end,
