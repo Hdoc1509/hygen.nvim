@@ -1,11 +1,18 @@
 local function setup()
   local ts_parsers = require("nvim-treesitter.parsers")
-  local parser_configs = ts_parsers.get_parser_configs()
 
+  -- TODO: add options to customize `install_info`
   local install_info = {
     url = "https://github.com/Hdoc1509/tree-sitter-hygen-template",
+    -- compatibility prior to removal of `files` option:
+    -- https://github.com/nvim-treesitter/nvim-treesitter/commit/214cfcf851d95a4c4f2dc7526b95ce9d31c88a76
     files = { "src/parser.c" },
+    -- compatibility prior to removal of `generate_requires_npm` option:
+    -- https://github.com/nvim-treesitter/nvim-treesitter/commit/5a38df5627fd0658223bdf32c9d6a87e32eb9504
     generate_requires_npm = true,
+    -- compatibility prior to default generate from json:
+    -- https://github.com/nvim-treesitter/nvim-treesitter/commit/bdc2e01958209dea64fc1a8b7dbf34d0dd96930e
+    generate_from_json = true,
     revision = "release",
   }
   local parser_info = {
@@ -13,8 +20,25 @@ local function setup()
     filetype = "hygen",
   }
 
-  ---@diagnostic disable-next-line: inject-field
-  parser_configs.hygen_template = parser_info
+  if ts_parsers.get_parser_config ~= nil then
+    -- old `master` branch
+    local parser_configs = ts_parsers.get_parser_configs()
+    ---@diagnostic disable-next-line: inject-field
+    parser_configs.hygen_template = parser_info
+  elseif ts_parsers.configs ~= nil then
+    -- reference: https://github.com/nvim-treesitter/nvim-treesitter/commit/692b051b09935653befdb8f7ba8afdb640adf17b
+    ts_parsers.configs.hygen_template = parser_info
+    vim.treesitter.language.register("hygen_template", "hygen")
+  else
+    -- reference: https://github.com/nvim-treesitter/nvim-treesitter/commit/c17de5689045f75c6244462182ae3b4b62df02d9
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "TSUpdate",
+      callback = function()
+        require("nvim-treesitter.parsers").hygen_template = parser_info
+      end,
+    })
+    vim.treesitter.language.register("hygen_template", "hygen")
+  end
 end
 
 return { setup = setup }
