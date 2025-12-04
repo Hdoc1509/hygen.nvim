@@ -154,6 +154,29 @@ Use `install` module instead:
 
 ```
 
+## Default configuration
+
+### `hygen.tree-sitter` setup
+
+<details>
+  <summary>Default configuration</summary>
+
+```lua
+---@type Hygen.TS.Opts
+{
+  -- Whether to `generate` files from the grammar before building it.
+  from_grammar = nil,
+  -- Path to local `tree-sitter-hygen-template`.
+  path = nil,
+  -- Remote URL to `tree-sitter-hygen-template`.
+  url = "https://github.com/Hdoc1509/tree-sitter-hygen-template",
+  -- Branch, tag or commit of `tree-sitter-hygen-template`.
+  revision = "release",
+}
+```
+
+</details>
+
 ## `inject-hygen-ejs!` directive
 
 > [!IMPORTANT]

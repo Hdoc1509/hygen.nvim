@@ -1,9 +1,10 @@
-local function setup()
+---@param opts Hygen.TS.Opts
+local function setup(opts)
   local ts_parsers = require("nvim-treesitter.parsers")
 
-  -- TODO: add options to customize `install_info`
   local install_info = {
-    url = "https://github.com/Hdoc1509/tree-sitter-hygen-template",
+    url = opts.path or opts.url,
+    path = opts.path,
     -- compatibility prior to removal of `files` option:
     -- https://github.com/nvim-treesitter/nvim-treesitter/commit/214cfcf851d95a4c4f2dc7526b95ce9d31c88a76
     files = { "src/parser.c" },
@@ -13,7 +14,11 @@ local function setup()
     -- compatibility prior to default generate from json:
     -- https://github.com/nvim-treesitter/nvim-treesitter/commit/bdc2e01958209dea64fc1a8b7dbf34d0dd96930e
     generate_from_json = true,
-    revision = "release",
+    revision = opts.revision,
+    generate = opts.from_grammar,
+    --compatibility prior to disuse of `requires_generate_from_grammar` option:
+    -- https://github.com/nvim-treesitter/nvim-treesitter/commit/c70daa36dcc2fdae113637fba76350daaf62dba5
+    requires_generate_from_grammar = opts.from_grammar,
   }
   local parser_info = {
     install_info = install_info,
