@@ -17,6 +17,7 @@ local function setup()
   }
   local parser_info = {
     install_info = install_info,
+    maintainers = { "@Hdoc1509" },
     -- NOTE: because grammar is not stable enough. a breaking change is expected
     -- set `tier = 1` once parser include wasm artifacts in its releases?
     tier = 3,
