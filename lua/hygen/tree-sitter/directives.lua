@@ -1,4 +1,3 @@
-local ts_parsers = require("nvim-treesitter.parsers")
 local get_hygen_subext = require("hygen.utils").get_hygen_subext
 
 local ext_to_ft = {
@@ -20,14 +19,17 @@ local directives = {
       filename = vim.fn.fnamemodify(filename, ":t:r"),
     })
 
-    if subext == nil and filetype == nil then
+    if subext == nil then
       return
     end
 
     local parser =
-      ts_parsers.ft_to_lang(ext_to_ft[subext] or filetype or subext)
+      vim.treesitter.language.get_lang(filetype or ext_to_ft[subext] or subext)
 
-    metadata["injection.language"] = parser
+    -- NOTE: notify about the parser not found?
+    if parser ~= nil then
+      metadata["injection.language"] = parser
+    end
   end,
   ["inject-hygen-ejs!"] = function(_, _, src, _, metadata)
     -- NOTE: should handle if source is a string?
