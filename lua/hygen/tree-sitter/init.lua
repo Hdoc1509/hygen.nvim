@@ -13,8 +13,7 @@ local M = {}
 ---@type Hygen.TS.Opts
 local default_opts = {
   url = "https://github.com/Hdoc1509/tree-sitter-hygen-template",
-  -- TODO: use specific tag. as nvim-treesitter does.
-  revision = "release",
+  revision = "v0.5.0",
 }
 
 function M.setup(opts)

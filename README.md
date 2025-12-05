@@ -171,7 +171,7 @@ Use `install` module instead:
   -- Remote URL to `tree-sitter-hygen-template`.
   url = "https://github.com/Hdoc1509/tree-sitter-hygen-template",
   -- Branch, tag or commit of `tree-sitter-hygen-template`.
-  revision = "release",
+  revision = "v0.5.0",
 }
 ```
 
