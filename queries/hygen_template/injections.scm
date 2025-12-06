@@ -22,7 +22,7 @@
         (#set! injection.language "javascript")))))
 
 (template
-  (frontmatter)? @frontmatter
+  (frontmatter) @frontmatter
   (body
     [
       (directive
@@ -34,11 +34,29 @@
     (#set! injection.language "javascript")
     (#set! injection.combined)))
 
-; dynamic injection
 (template
-  (frontmatter)? @frontmatter
+  .
+  (body
+    [
+      (directive
+        (code) @injection.content)
+      (output_directive
+        (code) @injection.content)
+    ]
+    (#set! injection.language "javascript")
+    (#set! injection.combined)))
+
+(template
+  (frontmatter) @frontmatter
   (body
     ((content) @injection.content
       (#not-lua-match? @frontmatter "from:")
-      (#inject-hygen-tmpl! @frontmatter)
+      (#inject-hygen-tmpl! "")
+      (#set! injection.combined))))
+
+(template
+  .
+  (body
+    ((content) @injection.content
+      (#inject-hygen-tmpl! "")
       (#set! injection.combined))))
