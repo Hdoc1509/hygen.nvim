@@ -1,4 +1,3 @@
-# inject:regex:
 unstable_message_regex='^\w+(\(.*\))?:!'
 
 last_tag=$(git describe --tags --abbrev=0)

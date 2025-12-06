@@ -1,5 +1,3 @@
-<!-- markdownlint-disable MD024 MD033 -->
-
 # hygen.nvim
 
 Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
@@ -14,6 +12,7 @@ Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
 - [Dynamic parser injection](#dynamic-injection)
 - [New directive](#inject-hygen-ejs-directive) to customize injections
 - Utility to get [hygen-colored icons](#hygen-colored-icons)
+- [LSP configuration](#lsp-configuration)
 - [Integrations](#integrations) with other plugins
 
 ## Requirements
@@ -32,16 +31,97 @@ Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
 
 ## Install
 
-### [`lazy.nvim`](https://github.com/folke/lazy.nvim)
+Installation examples for [`lazy.nvim`](https://github.com/folke/lazy.nvim) and
+[`packer.nvim`](https://github.com/wbthomason/packer.nvim):
 
-#### `nvim-treesitter`
+### `nvim-treesitter` at [`main`][nvim-ts-main] branch
+
+> [!IMPORTANT]
+> This snippet is for neovim >= 0.11.0
 
 ```lua
 {
   "nvim-treesitter/nvim-treesitter",
+  lazy = false, -- if using `lazy.nvim`
+  branch = 'main',
+  -- `run` instead of `build` if using `packer.nvim`
+  build = ':TSUpdate',
+  -- `requires` instead of `dependencies` if using `packer.nvim`
   dependencies = { "Hdoc1509/hygen.nvim" },
   config = function()
-    -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
+    -- NOTE: register parser before installation
+    require("hygen.tree-sitter").setup()
+
+    require("nvim-treesitter").install({
+      "bash", -- optional
+      "embedded_template", -- optional
+      "hygen_template", -- required
+      "javascript", -- optional
+      "regex", -- optional
+    })
+  end,
+}
+```
+
+#### [`ensure_install` of `main`][nvim-ts-main-ensure-install] branch
+
+> [!IMPORTANT]
+> This snippet is for neovim >= 0.11.0.
+
+<details>
+  <summary>Installation example</summary>
+
+Use `install` module instead:
+
+```lua
+{
+  "nvim-treesitter/nvim-treesitter",
+  lazy = false, -- if using `lazy.nvim`
+  branch = 'main',
+  -- `run` instead of `build` if using `packer.nvim`
+  build = ':TSUpdate',
+  -- prior or equal to:
+  commit = "73adbe597e8350cdf2773e524eb2199841ea2ab6",
+  -- posterior or equal to:
+  -- commit = "0bb981c87604200df6c8fb81e5a411101bdf93af",
+  -- `requires` instead of `dependencies` if using `packer.nvim`
+  dependencies = { 'Hdoc1509/hygen.nvim' },
+  config = function()
+    -- NOTE: register parser before installation
+    require("hygen.tree-sitter").setup()
+
+    require("nvim-treesitter.install").install({
+      "bash", -- optional
+      "embedded_template", -- optional
+      "hygen_template", -- required
+      "javascript", -- optional
+      "regex", -- optional
+    })
+  end,
+}
+```
+
+</details>
+
+#### `configs` module of [`master`][nvim-ts-master] branch
+
+> [!IMPORTANT]
+> This snippet is for neovim >= 0.9.0.
+
+<details>
+  <summary>Installation example</summary>
+
+```lua
+{
+  "nvim-treesitter/nvim-treesitter",
+  lazy = false, -- if using `lazy.nvim`
+  branch = 'master',
+  -- `run` instead of `build` if using `packer.nvim`
+  build = ':TSUpdate',
+  -- `requires` instead of `dependencies` if using `packer.nvim`
+  dependencies = { 'Hdoc1509/hygen.nvim' },
+  config = function()
+    -- NOTE: register parser before installation
     require("hygen.tree-sitter").setup()
 
     require("nvim-treesitter.configs").setup({
@@ -57,11 +137,14 @@ Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
 }
 ```
 
-#### `nvim-web-devicons`
+</details>
+
+### `nvim-web-devicons`
 
 ```lua
 {
   "nvim-tree/nvim-web-devicons",
+  -- `requires` instead of `dependencies` if using `packer.nvim`
   dependencies = { "Hdoc1509/hygen.nvim" },
   config = function()
     require("nvim-web-devicons").setup({})
@@ -71,43 +154,28 @@ Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
 
 ```
 
-### [`packer.nvim`](https://github.com/wbthomason/packer.nvim)
+## Default configuration
 
-#### `nvim-treesitter`
+### `hygen.tree-sitter` setup
 
-```lua
-use({
-  "nvim-treesitter/nvim-treesitter",
-  requires = { "Hdoc1509/hygen.nvim" },
-  config = function()
-    -- NOTE: call this before calling `nvim-treesitter.configs.setup()`
-    require("hygen.tree-sitter").setup()
-
-    require("nvim-treesitter.configs").setup({
-      ensure_installed = {
-        "bash", -- optional
-        "embedded_template", -- optional
-        "hygen_template", -- required
-        "javascript", -- optional
-        "regex", -- optional
-      },
-    })
-  end,
-})
-```
-
-#### `nvim-web-devicons`
+<details>
+  <summary>Default configuration</summary>
 
 ```lua
-use({
-  "nvim-tree/nvim-web-devicons",
-  requires = { "Hdoc1509/hygen.nvim" },
-  config = function()
-    require("nvim-web-devicons").setup({})
-    require("hygen.web-devicons").setup()
-  end,
-})
+---@type Hygen.TS.Opts
+{
+  -- Whether to `generate` files from the grammar before building it.
+  from_grammar = nil,
+  -- Path to local `tree-sitter-hygen-template`.
+  path = nil,
+  -- Remote URL to `tree-sitter-hygen-template`.
+  url = "https://github.com/Hdoc1509/tree-sitter-hygen-template",
+  -- Branch, tag or commit of `tree-sitter-hygen-template`.
+  revision = "v0.5.0",
+}
 ```
+
+</details>
 
 ## `inject-hygen-ejs!` directive
 
@@ -125,7 +193,7 @@ i.e., having `after/queries/bash/injections.scm` in user's config directory:
   (string
     (string_content) @injection.content
     (#lua-match? @injection.content "<%%=")
-    (#inject-hygen-ejs!)))
+    (#inject-hygen-ejs! "")))
 ```
 
 The example query will inject `ejs` to `bash` strings that contain `<%=` and are
@@ -270,6 +338,56 @@ require("mini.files").setup({
 
 </details>
 
+## LSP configuration
+
+The `hygen.ts-query-ls` module exports an LSP configuration for `ts_query_ls`
+server to register the custom directives used by this plugin.
+
+### [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + neovim < 0.11
+
+> [!IMPORTANT]
+> Be sure to set `hygen.nvim` as a dependency
+
+```lua
+local lspconfig = require('lspconfig')
+local hygen_ts_query_ls = require('hygen.ts-query-ls')
+
+lspconfig.ts_query_ls.setup(vim.tbl_deep_extend('force', {
+  -- your settings
+}, hygen_ts_query_ls))
+```
+
+### vim.lsp.config
+
+<!-- TODO: need to check if it works correctlty -->
+
+> [!IMPORTANT]
+> Be sure to load `hygen.nvim` during startup
+
+```lua
+local hygen_ts_query_ls = require('hygen.ts-query-ls')
+
+vim.lsp.enable('ts_query_ls')
+vim.lsp.config('ts_query_ls', vim.tbl_deep_extend('force', {
+  -- your settings
+}, hygen_ts_query_ls))
+```
+
+### `<rtp>/lsp/` folder
+
+<!-- TODO: need to check if it works correctlty -->
+
+> [!IMPORTANT]
+> Be sure to load `hygen.nvim` during startup
+
+```lua
+local hygen_ts_query_ls = require('hygen.ts-query-ls')
+
+return vim.tbl_deep_extend('force', {
+  -- your settings
+}, hygen_ts_query_ls)
+```
+
 ## Dynamic injection
 
 Dynamic injection is applied following the [file naming convention of
@@ -350,5 +468,10 @@ Thanks to [@ngynkvn](https://github.com/ngynkvn) for
 [javascript]: https://github.com/tree-sitter/tree-sitter-javascript
 [regex]: https://github.com/tree-sitter/tree-sitter-regex
 [nvim-treesitter]: https://github.com/nvim-treesitter/nvim-treesitter
+[nvim-ts-main]: https://github.com/nvim-treesitter/nvim-treesitter/tree/main
+[nvim-ts-main-ensure-install]: https://github.com/nvim-treesitter/nvim-treesitter/tree/0bb981c87604200df6c8fb81e5a411101bdf93af#setup
+[nvim-ts-master]: https://github.com/nvim-treesitter/nvim-treesitter/tree/master
 [nvim-web-devicons]: https://github.com/nvim-tree/nvim-web-devicons
 [ignored-template-body]: https://github.com/jondot/hygen/blob/master/hygen.io/docs/templates.md#from--shared-templates
+
+<!-- markdownlint-disable-file MD033 -->

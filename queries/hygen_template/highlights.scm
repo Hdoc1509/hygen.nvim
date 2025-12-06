@@ -46,5 +46,6 @@
 
 (template
   (frontmatter) @frontmatter
-  ((body) @comment
-    (#has-hygen-from-key? @frontmatter)))
+  (#lua-match? @frontmatter "from:")
+  (body) @comment
+  (#set! priority 135))
