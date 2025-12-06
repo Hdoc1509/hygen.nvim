@@ -47,4 +47,5 @@
 (template
   (frontmatter) @frontmatter
   (#lua-match? @frontmatter "from:")
-  (body) @comment)
+  (body) @comment
+  (#set! priority 135))
