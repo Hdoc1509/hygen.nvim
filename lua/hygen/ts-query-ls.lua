@@ -15,7 +15,7 @@ return {
       },
       ["inject-hygen-tmpl"] = {
         parameters = {
-          { type = "capture", arity = "required" },
+          { type = "string", arity = "optional" },
         },
         description = "Directive to enable dynamic injections for `hygen` files.",
       },
