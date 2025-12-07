@@ -340,8 +340,9 @@ require("mini.files").setup({
 
 ## LSP configuration
 
-The `hygen.ts-query-ls` module exports an LSP configuration for `ts_query_ls`
-server to register the custom directives used by this plugin.
+The `hygen.ts-query-ls` module exports an LSP configuration for
+[`ts_query_ls`][ts-query-ls] server to register the custom directives used by
+this plugin.
 
 ### [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + neovim < 0.11
 
@@ -473,5 +474,6 @@ Thanks to [@ngynkvn](https://github.com/ngynkvn) for
 [nvim-ts-master]: https://github.com/nvim-treesitter/nvim-treesitter/tree/master
 [nvim-web-devicons]: https://github.com/nvim-tree/nvim-web-devicons
 [ignored-template-body]: https://github.com/jondot/hygen/blob/master/hygen.io/docs/templates.md#from--shared-templates
+[ts-query-ls]: https://github.com/ribru17/ts_query_ls
 
 <!-- markdownlint-disable-file MD033 -->
