@@ -26,6 +26,7 @@ in Neovim.
   is `after`, `before` or `skip_if`
 - [`embedded_template` parser][embedded-template] (optional): needed for
   [new directive](#inject-hygen-ejs-directive)
+- Any other parser that you want to use for [dynamic injection](#dynamic-injection)
 - Icon provider (optional, but recommended):
   - [`nvim-web-devicons`][nvim-web-devicons]
 
@@ -58,6 +59,7 @@ Installation examples for [`lazy.nvim`](https://github.com/folke/lazy.nvim) and
       "hygen_template", -- required
       "javascript", -- optional
       "regex", -- optional
+      -- any other parser for dynamic injection
     })
   end,
 }
@@ -97,6 +99,7 @@ Use `install` module instead:
       "hygen_template", -- required
       "javascript", -- optional
       "regex", -- optional
+      -- any other parser for dynamic injection
     })
   end,
 }
@@ -132,6 +135,7 @@ Use `install` module instead:
         "hygen_template", -- required
         "javascript", -- optional
         "regex", -- optional
+      -- any other parser for dynamic injection
       },
     })
   end,
