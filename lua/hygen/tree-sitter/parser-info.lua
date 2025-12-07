@@ -29,7 +29,7 @@ local function setup(opts)
     filetype = "hygen",
   }
 
-  if ts_parsers.get_parser_config ~= nil then
+  if ts_parsers.get_parser_configs ~= nil then
     -- old `master` branch
     local parser_configs = ts_parsers.get_parser_configs()
     ---@diagnostic disable-next-line: inject-field
