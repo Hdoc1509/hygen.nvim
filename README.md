@@ -65,7 +65,8 @@ Installation examples for [`lazy.nvim`](https://github.com/folke/lazy.nvim) and
 #### [`ensure_install` of `main`][nvim-ts-main-ensure-install] branch
 
 > [!IMPORTANT]
-> This snippet is for neovim >= 0.11.0.
+> This snippet is for neovim >= 0.11.0. See [Minit README](./minit/README.md#nvim-ts-main-ensure-installlua)
+> for some details about possible compatibility for neovim 0.10.
 
 <details>
   <summary>Installation example</summary>
