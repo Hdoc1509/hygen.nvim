@@ -364,14 +364,14 @@ this plugin.
 
 ```lua
 local lspconfig = require('lspconfig')
-local hygen_ts_query_ls = require('hygen.ts-query-ls')
+local hygen = require('hygen.ts-query-ls')
 
 lspconfig.ts_query_ls.setup(vim.tbl_deep_extend('force', {
   -- your settings
-}, hygen_ts_query_ls))
+}, hygen))
 ```
 
-### vim.lsp.config
+### [vim.lsp.config][vim-lsp-config] + neovim >= 0.11
 
 <!-- TODO: need to check if it works correctlty -->
 
@@ -379,27 +379,35 @@ lspconfig.ts_query_ls.setup(vim.tbl_deep_extend('force', {
 > Be sure to load `hygen.nvim` during startup
 
 ```lua
-local hygen_ts_query_ls = require('hygen.ts-query-ls')
+local hygen = require('hygen.ts-query-ls')
 
-vim.lsp.enable('ts_query_ls')
 vim.lsp.config('ts_query_ls', vim.tbl_deep_extend('force', {
   -- your settings
-}, hygen_ts_query_ls))
+}, hygen))
+vim.lsp.enable('ts_query_ls')
 ```
 
-### `<rtp>/lsp/` folder
+### `<rtp>/lsp/ts_query_ls.lua` + neovim >= 0.11
 
 <!-- TODO: need to check if it works correctlty -->
 
-> [!IMPORTANT]
-> Be sure to load `hygen.nvim` during startup
-
 ```lua
-local hygen_ts_query_ls = require('hygen.ts-query-ls')
+local hygen = require('hygen.ts-query-ls')
 
 return vim.tbl_deep_extend('force', {
   -- your settings
-}, hygen_ts_query_ls)
+}, hygen)
+```
+
+> [!IMPORTANT]
+> Be sure to load `vim-map-side.nvim` before calling `vim.lsp.enable()`
+>
+> See [LSP config merge](https://neovim.io/doc/user/lsp.html#lsp-config-merge)
+
+Then, in your `init.lua`:
+
+```lua
+vim.lsp.enable('ts_query_ls')
 ```
 
 ## Dynamic injection
@@ -489,5 +497,6 @@ Thanks to [@ngynkvn](https://github.com/ngynkvn) for
 [ignored-template-body]: https://github.com/jondot/hygen/blob/master/hygen.io/docs/templates.md#from--shared-templates
 [nvim-config-ts-query-ls]: https://github.com/Hdoc1509/nvim-config/blob/master/lua/plugins/lsp/servers/ts_query_ls/init.lua
 [ts-query-ls]: https://github.com/ribru17/ts_query_ls
+[vim-lsp-config]: https://neovim.io/doc/user/lsp.html#lsp-config
 
 <!-- markdownlint-disable-file MD033 -->
