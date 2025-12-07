@@ -3,4 +3,4 @@
   (#set! injection.combined))
 
 ((code) @injection.content
-  (#inject-embedded_template!))
+  (#inject-embedded_template! ""))
