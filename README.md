@@ -245,13 +245,10 @@ local allowed_hygen_subext = { 'md', 'mdx' }
 
 require("render-markdown").setup({
   ignore = function(bufnr)
-    local filename = vim.api.nvim_buf_get_name(bufnr)
-    local extension = vim.fn.fnamemodify(filename, ":e")
-
-    if extension == "hygen" then
+    if vim.bo[bufnr].filetype == "hygen" then
       return not vim.tbl_contains(
         allowed_hygen_subext,
-        hygen_utils.get_hygen_subext(filename)
+        hygen_utils.get_hygen_subext(bufnr)
       )
     else
       return false
