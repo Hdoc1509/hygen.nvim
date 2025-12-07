@@ -377,7 +377,7 @@ lspconfig.ts_query_ls.setup(vim.tbl_deep_extend('force', {
 <!-- TODO: need to check if it works correctlty -->
 
 > [!IMPORTANT]
-> Be sure to load `hygen.nvim` during startup
+> Be sure to load `hygen.nvim` before
 
 ```lua
 local hygen = require('hygen.ts-query-ls')
