@@ -3,7 +3,7 @@
 Plugin that adds support for [Hygen](https://github.com/jondot/hygen) templates
 in Neovim.
 
-![Hygen template with Markdown parser injected](https://github.com/user-attachments/assets/2746bd28-d01b-404c-80a4-4494dacae330)
+![Hygen template with Markdown parser injected](https://i.imgur.com/NlbQGJh.png)
 
 ## Features
 
@@ -418,53 +418,53 @@ Dynamic injection is applied following the [file naming convention of
 
 ### `vite.config.ts.hygen`
 
-![vite.config.ts.hygen](https://github.com/user-attachments/assets/24b3985c-72a2-4696-ae7f-07c563a6ec93)
+![vite.config.ts.hygen](https://i.imgur.com/KJ30RCs.png)
 
 > Normal icon
 
 ---
 
-![vite.config.ts.hygen with hygen-colored icon](https://github.com/user-attachments/assets/290e7e9b-0d5c-4b16-9624-b195d6923118)
+![vite.config.ts.hygen with hygen-colored icon](https://i.imgur.com/I8zdLCa.png)
 
 > Hygen-colored icon
 
 ### `Layout.astro.hygen`
 
-![Layout.astro.hygen](https://github.com/user-attachments/assets/b4bcf1e0-f2b7-4e5a-91d0-918c8610206a)
+![Layout.astro.hygen](https://i.imgur.com/sUXWJg7.png)
 
 > Normal icon
 
 ---
 
-![Layout.astro.hygen with hygen-colored icon](https://github.com/user-attachments/assets/4079d0fe-f12b-4f77-b12d-fc01fd9ec60b)
+![Layout.astro.hygen with hygen-colored icon](https://i.imgur.com/zy7IbpA.png)
 
 > Hygen-colored icon
 
 ### `package.json.hygen`
 
-![package.json.hygen](https://github.com/user-attachments/assets/004e9b0b-2a99-407d-a604-7820f84c643d)
+![package.json.hygen](https://i.imgur.com/SdaHNmu.png)
 
 > Normal icon
 
 ---
 
-![package.json.hygen with hygen-colored icon](https://github.com/user-attachments/assets/de26b3c7-5da3-4dda-8e4c-856cad53a49e)
+![package.json.hygen with hygen-colored icon](https://i.imgur.com/HZv65PO.png)
 
 > Hygen-colored icon
 
 ### `mini.files`
 
-![mini.files](https://github.com/user-attachments/assets/058b3ffa-4426-437c-86bd-68e816427c04)
+![mini.files](https://i.imgur.com/gGlfiM1.png)
 
 > Normal icon
 
-![mini.files with hygen-colored icon](https://github.com/user-attachments/assets/093aa55b-3850-4960-86f7-527b30ec1a84)
+![mini.files with hygen-colored icon](https://i.imgur.com/jFoApaB.png)
 
 > Hygen-colored icon
 
 ### `metadata-from-key.md.hygen`
 
-![Hygen template with ignored body](https://github.com/user-attachments/assets/019a7cb6-ce79-47c5-b4d7-e52d7c04eb91)
+![Hygen template with ignored body](https://i.imgur.com/AxImIZq.png)
 
 > [Ignored template's body][ignored-template-body] highlighted as comment
 > because of presence of `from` metadata key
