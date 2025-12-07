@@ -31,6 +31,7 @@ local directives = {
       metadata["injection.language"] = parser
     end
   end,
+  -- TODO: remove directive. it adds unnecessary complexity
   ["inject-hygen-ejs!"] = function(_, _, src, _, metadata)
     -- NOTE: should handle if source is a string?
     if type(src) ~= "number" then

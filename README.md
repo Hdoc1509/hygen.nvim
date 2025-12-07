@@ -344,6 +344,17 @@ The `hygen.ts-query-ls` module exports an LSP configuration for
 [`ts_query_ls`][ts-query-ls] server to register the custom directives used by
 this plugin.
 
+> [!IMPORTANT]
+> This is only needed if you will use the directives defined by this plugin in
+> your queries and if you have set the [`valid_directives` setting for
+> `ts_query_ls`](https://github.com/ribru17/ts_query_ls#valid_directives).
+
+---
+
+> [!NOTE]
+> You can check [my config for `ts_query_ls`][nvim-config-ts-query-ls] for
+> reference.
+
 ### [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig) + neovim < 0.11
 
 > [!IMPORTANT]
@@ -474,6 +485,7 @@ Thanks to [@ngynkvn](https://github.com/ngynkvn) for
 [nvim-ts-master]: https://github.com/nvim-treesitter/nvim-treesitter/tree/master
 [nvim-web-devicons]: https://github.com/nvim-tree/nvim-web-devicons
 [ignored-template-body]: https://github.com/jondot/hygen/blob/master/hygen.io/docs/templates.md#from--shared-templates
+[nvim-config-ts-query-ls]: https://github.com/Hdoc1509/nvim-config/blob/master/lua/plugins/lsp/servers/ts_query_ls/init.lua
 [ts-query-ls]: https://github.com/ribru17/ts_query_ls
 
 <!-- markdownlint-disable-file MD033 -->
