@@ -1,6 +1,7 @@
 # hygen.nvim
 
-Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
+Plugin that adds support for [Hygen](https://github.com/jondot/hygen) templates
+in Neovim.
 
 ![Hygen template with Markdown parser injected](https://github.com/user-attachments/assets/2746bd28-d01b-404c-80a4-4494dacae330)
 
