@@ -10,9 +10,8 @@ Plugin that adds support for [Hygen](https://www.hygen.io/) templates in Neovim.
   [`tree-sitter-hygen-template`][hygen-template]. Compatible with
   [`v0.5.0`][tree-sitter-hygen-template-version]
 - [Dynamic parser injection](#dynamic-injection)
-- [New directive](#inject-hygen-ejs-directive) to customize injections
+- [New directive](#new-directive) with [LSP configuration](#lsp-configuration)
 - Utility to get [hygen-colored icons](#hygen-colored-icons)
-- [LSP configuration](#lsp-configuration)
 - [Integrations](#integrations) with other plugins
 
 ## Requirements
@@ -177,7 +176,9 @@ Use `install` module instead:
 
 </details>
 
-## `inject-hygen-ejs!` directive
+## New directive
+
+### `inject-hygen-ejs!` directive
 
 > [!IMPORTANT]
 > This directive requires `embedded_template` parser.
