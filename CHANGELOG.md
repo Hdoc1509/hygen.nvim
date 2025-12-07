@@ -1,5 +1,33 @@
 # hygen.nvim
 
+## 0.4.0
+
+### Minor Changes
+
+- Add `maintainers` of parser ([#4](https://github.com/Hdoc1509/hygen.nvim/pull/4))
+
+- Allow customization of `install_info` for parser ([#4](https://github.com/Hdoc1509/hygen.nvim/pull/4))
+
+- Export settings for `ts_query_ls` ([#4](https://github.com/Hdoc1509/hygen.nvim/pull/4))
+
+- Complete exported settings for `ts_query_ls` ([#4](https://github.com/Hdoc1509/hygen.nvim/pull/4))
+
+- Use specific version of `tree-sitter-hygen-template` ([#4](https://github.com/Hdoc1509/hygen.nvim/pull/4))
+
+### Patch Changes
+
+- Apply injection of `embedded_template` based on filetype too ([#4](https://github.com/Hdoc1509/hygen.nvim/pull/4))
+
+- Ensure correct highlight of ignored body ([#4](https://github.com/Hdoc1509/hygen.nvim/pull/4))
+
+- Handle changes of `nvim-treesitter` in `main` branch ([#4](https://github.com/Hdoc1509/hygen.nvim/pull/4))
+
+- Set correct specification for `inject-hygen-tmpl` directive ([#4](https://github.com/Hdoc1509/hygen.nvim/pull/4))
+
+- Add `tier` of parser ([#4](https://github.com/Hdoc1509/hygen.nvim/pull/4))
+
+- Handle changes of treesitter directive handler from neovim 0.10 ([#4](https://github.com/Hdoc1509/hygen.nvim/pull/4))
+
 ## 0.3.1
 
 ### Patch Changes
