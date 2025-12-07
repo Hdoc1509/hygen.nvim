@@ -469,6 +469,45 @@ Dynamic injection is applied following the [file naming convention of
 > [Ignored template's body][ignored-template-body] highlighted as comment
 > because of presence of `from` metadata key
 
+## Troubleshooting
+
+> [!IMPORTANT]
+> Be sure to run `:checkhealth vim.treesitter` and
+> `:checkhealth nvim-treesitter` before checking the following errors.
+
+### Incompatible ABI version
+
+If you found the following error:
+
+```checkhealth
+- ERROR Parser "hygen_template" failed to load
+  (path: .../hygen_template.so): ...: ABI version mismatch for
+  .../hygen_template.so: supported between X and Y, found Z
+```
+
+<!-- prettier-ignore -->
+> [!NOTE]
+> `X` and `Y` are the interval of ABI versions supported by neovim. `Z` is the
+> ABI version that was used to develop the parser.
+
+1. Install the following tools:
+
+   - [`Node.js`][nodejs]
+   - [`tree-sitter cli`][tree-sitter-cli]
+
+2. Run `:TSInstallFromGrammar hygen_template` to re-install the parser with the
+   correct ABI version.
+
+It's also recommended to add the `from_grammar` option to the `setup` function
+of the `tree-sitter` module in order to avoid the need to run
+`:TSInstallFromGrammar` every time `nvim-treesitter` is updated:
+
+```lua
+require("hygen.tree-sitter").setup({
+  from_grammar = true
+})
+```
+
 ## Updates
 
 This plugin will follow changes of `tree-sitter-hygen-template`:
@@ -494,6 +533,8 @@ Thanks to [@ngynkvn](https://github.com/ngynkvn) for
 [nvim-ts-main]: https://github.com/nvim-treesitter/nvim-treesitter/tree/main
 [nvim-ts-main-ensure-install]: https://github.com/nvim-treesitter/nvim-treesitter/tree/0bb981c87604200df6c8fb81e5a411101bdf93af#setup
 [nvim-ts-master]: https://github.com/nvim-treesitter/nvim-treesitter/tree/master
+[nodejs]: https://nodejs.org/en/download
+[tree-sitter-cli]: https://github.com/tree-sitter/tree-sitter/tree/master/crates/cli
 [nvim-web-devicons]: https://github.com/nvim-tree/nvim-web-devicons
 [ignored-template-body]: https://github.com/jondot/hygen/blob/master/hygen.io/docs/templates.md#from--shared-templates
 [nvim-config-ts-query-ls]: https://github.com/Hdoc1509/nvim-config/blob/master/lua/plugins/lsp/servers/ts_query_ls/init.lua
