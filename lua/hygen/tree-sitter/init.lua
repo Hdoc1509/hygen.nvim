@@ -16,6 +16,7 @@ local default_opts = {
   revision = "v0.5.0",
 }
 
+---@param opts Hygen.TS.Opts
 function M.setup(opts)
   opts = vim.tbl_deep_extend("force", default_opts, opts or {})
 
