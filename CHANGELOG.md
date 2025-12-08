@@ -1,5 +1,11 @@
 # hygen.nvim
 
+## 0.4.2
+
+### Patch Changes
+
+- Set options table of `tree-sitter` module as optional ([`01f228c`](https://github.com/Hdoc1509/hygen.nvim/commit/01f228c37d20e82d98986b585dd67531642f629d))
+
 ## 0.4.1
 
 ### Patch Changes
