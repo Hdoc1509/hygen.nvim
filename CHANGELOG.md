@@ -1,5 +1,11 @@
 # hygen.nvim
 
+## 0.4.1
+
+### Patch Changes
+
+- Add typing for options of `tree-sitter` module ([`1518d8c`](https://github.com/Hdoc1509/hygen.nvim/commit/1518d8cb7bb9248012289511dea8d97b1946a21f))
+
 ## 0.4.0
 
 ### Minor Changes
