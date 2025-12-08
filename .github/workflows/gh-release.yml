@@ -15,14 +15,12 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6.0.1
 
       - name: Create release
-        id: release_tag
-        uses: yyx990803/release-tag@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2.5.0
         with:
-          tag_name: ${{ github.ref }}
+          tag_name: ${{ github.ref_name }}
           body: |
             Please refer to [CHANGELOG.md](https://github.com/Hdoc1509/hygen.nvim/blob/${{ github.ref_name }}/CHANGELOG.md) for details.
+          token: ${{ secrets.GITHUB_TOKEN }}
