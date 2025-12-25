@@ -509,6 +509,31 @@ require("hygen.tree-sitter").setup({
 })
 ```
 
+### Duplicated `hygen_template` parser in output of `vim.treesitter` checkhealth
+
+This error happens when `nvim-treesitter` has been updated from `master` branch
+to `main` branch because default value of `install_dir` for parsers has changed:
+
+Before:
+
+```text
+<path-of-nvim-treesitter>/parser/
+```
+
+After:
+
+```lua
+vim.fs.joinpath(vim.fn.stdpath('data'), 'site', 'parser')
+```
+
+This can cause to load the old version of `hygen_template` parser from `main`
+branch.
+
+To fix this error, remove all `.so` files from `<path-of-nvim-treesitter>/parser`.
+
+Now run `:checkhealth vim.treesitter` again and it should be fixed. Only one
+`hygen_template` parser should appear in the output.
+
 ## Updates
 
 This plugin will follow changes of `tree-sitter-hygen-template`:
